@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#005db6",
+                    "on-primary-fixed-variant": "#00468c",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#a6c8ff",
+                    "secondary": "#575f67",
+                    "on-secondary-fixed": "#141d23",
+                    "background": "#f8f9fa",
+                    "secondary-fixed-dim": "#bfc8d0",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a9c7ff",
+                    "surface-container": "#edeeef",
+                    "on-primary-fixed": "#001b3d",
+                    "surface-container-high": "#e7e8e9",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d6e3ff",
+                    "on-surface-variant": "#424752",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "outline-variant": "#c2c6d4",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#d5e3ff",
+                    "on-secondary-fixed-variant": "#3f484f",
+                    "inverse-surface": "#2e3132",
+                    "error": "#ba1a1a",
+                    "tertiary": "#244877",
+                    "surface-variant": "#e1e3e4",
+                    "outline": "#727783",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-container": "#c8daff",
+                    "tertiary-container": "#3e6091",
+                    "surface-dim": "#d9dadb",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "primary": "#00478d",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed": "#dbe4ed",
+                    "surface-bright": "#f8f9fa",
+                    "on-secondary-container": "#5b646b",
+                    "secondary-container": "#d8e1ea",
+                    "primary-container": "#005eb8",
+                    "on-tertiary-container": "#c6dbff",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-tertiary-fixed-variant": "#234776",
+                    "on-surface": "#191c1d",
+                    "on-tertiary-fixed": "#001c3b",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-background": "#191c1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "unit": "8px",
+                    "stack-lg": "32px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "caption": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .tonal-card {
+            background: #FFFFFF;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tonal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 30px rgba(0,0,0,0.08);
+        }
+        .glass-header {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 glass-header shadow-sm h-16 flex items-center bg-surface/80">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
+<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary">MediGuide</a>
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a href="Edukasi.html" class="text-primary font-bold border-b-2 border-primary cursor-pointer transition-all active:scale-95" href="#">Edukasi</a>
+<a href="Chatbot.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer active:scale-95" href="#">Cek Gejala</a>
+<a href="Dashboard.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer active:scale-95" href="#">Dashboard</a>
+</nav>
+<div class="flex items-center gap-gutter">
+<a href="Notifikasi.html" class="material-symbols-outlined text-on-surface-variant cursor-pointer transition-all active:scale-95">notifications</a>
+<a href="Akun.html">
+<img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
+</a>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Category Hero Section -->
+<section class="mb-stack-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md border-b border-outline-variant pb-stack-md">
+<div class="space-y-stack-sm">
+<div class="flex items-center gap-stack-sm text-primary">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Kategori Edukasi</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Kesehatan Mental</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Pelajari cara menjaga kesejahteraan psikologis Anda melalui panduan yang disusun oleh para ahli medis dan psikiater berlisensi.
+                    </p>
+</div>
+<div class="flex items-center gap-stack-sm bg-secondary-container/50 px-4 py-2 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md text-on-secondary-container">Konten Terverifikasi Medis</span>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="mb-stack-lg sticky top-[72px] z-40 py-2 glass-header rounded-xl">
+<div class="flex flex-col md:flex-row gap-stack-md items-center">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-body-md" placeholder="Cari artikel kesehatan mental..." type="text">
+</div>
+<div class="flex gap-stack-sm overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-all">Semua</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-surface border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-all active:scale-95">Kecemasan</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-surface border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-all active:scale-95">Depresi</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-surface border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-all active:scale-95">Tidur</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-surface border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-all active:scale-95">Stres</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Articles -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Featured Card -->
+<div class="md:col-span-8 group">
+<div class="tonal-card rounded-xl overflow-hidden h-full flex flex-col md:flex-row border border-outline-variant transition-all duration-700 opacity-100 translate-y-0 cursor-pointer" onclick="window.location.href='#{{DATA:SCREEN:SCREEN_11}}'">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A tranquil landscape featuring a person sitting in a meditative pose on a wooden dock overlooking a calm, misty lake at dawn. The scene is bathed in soft, ethereal blue and lavender light, creating a serene and healing atmosphere. This minimalist visual reflects a sense of peace and mental clarity, aligning with a high-end health platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDErFOIVqQuNFTvvHuwsJbEk72jbKiUK3_Z4XNs1csxRlonp3z5i77OSnucOnm8qEpWqN_EcLbHV33FHbxpguRwLJLXLfnE8YjsCiCpyZ9GzV46i0zPnzJYDJL3_uwfOKuR0nlp77kuR8LXZ_hMhODQRQjjGRm-BHMHtEYD5yxZNcOqZQS8zNgxMmDMFOr2MHovoJkzvAPyuev2gTrASUFE3fVTKyBExLO3Edw05h5UrhkX7ZsdkwmsPeOVD-nlKMGQ0jY4-wghMMg">
+</div>
+<div class="md:w-1/2 p-stack-md flex flex-col justify-between">
+<div>
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-caption text-caption mb-stack-sm">Topik Utama</span>
+<h2 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Panduan Meditasi Mindfulness untuk Pemula</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Pelajari bagaimana 10 menit meditasi sehari dapat menurunkan tingkat kortisol dan memperbaiki fokus mental Anda secara signifikan.</p>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-stack-sm">
+<span class="font-caption text-caption text-outline">8 Menit Baca</span>
+<button class="flex items-center gap-1 text-primary font-label-md text-label-md" onclick="event.stopPropagation(); window.location.href='#{{DATA:SCREEN:SCREEN_11}}'">
+                                Baca Selengkapnya <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 group">
+<div class="tonal-card rounded-xl overflow-hidden h-full flex flex-col border border-outline-variant transition-all duration-700 opacity-100 translate-y-0 cursor-pointer" onclick="window.location.href='#{{DATA:SCREEN:SCREEN_11}}'">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a human hand holding a smooth, warm-colored stone, symbolizing grounding and stability. The lighting is warm and directional, highlighting textures and creating a comforting, tactile feel. The background is a clean, neutral gray, keeping focus on the symbolic act of self-care and mental health management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ3pLTCvS_v3j1NxAnVXujClg-pOYsFibYsekszxLU3552QdSUyk6nlrMpo9blp33_15t5MigktWC6p7km1LJywEb44MUFToyeBp8GF9lkTMjByZbmcz0On4mHuewIb1OUobgWXVCvhbmXxhVmOErqVL5CgzzR7ygqNu7I5TqeGVoBu8MH7czwfhfLfizaJCK736NDcVN6csdXMmpaNTjdW9iPnRcwJK0plKiKZ7OKD-b7NSeCBpXEDhsF364ZqTk0q2nJV05KTpg">
+</div>
+<div class="p-stack-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-body-lg font-bold mb-2 text-on-surface">Mengenal Gejala Burnout di Tempat Kerja</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Bagaimana membedakan kelelahan biasa dengan kelelahan mental kronis.</p>
+</div>
+<span class="font-caption text-caption text-outline mt-4">5 Menit Baca</span>
+</div>
+</div>
+</div>
+<!-- Standard Grid Cards -->
+<div class="md:col-span-4 group">
+<div class="tonal-card rounded-xl p-stack-md border border-outline-variant h-full flex flex-col justify-between transition-all duration-700 opacity-100 translate-y-0 cursor-pointer" onclick="window.location.href='#{{DATA:SCREEN:SCREEN_11}}'">
+<div>
+<span class="material-symbols-outlined text-tertiary mb-4" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+<h3 class="font-headline-md text-body-lg font-bold mb-2 text-on-surface">Hubungan Antara Kualitas Tidur &amp; Kecemasan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Sains di balik mengapa kurang tidur membuat kita lebih mudah merasa cemas.</p>
+</div>
+<div class="mt-stack-md pt-stack-sm border-t border-outline-variant">
+<span class="font-caption text-caption text-outline">6 Menit Baca</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 group">
+<div class="tonal-card rounded-xl p-stack-md border border-outline-variant h-full flex flex-col justify-between transition-all duration-700 opacity-100 translate-y-0 cursor-pointer" onclick="window.location.href='#{{DATA:SCREEN:SCREEN_11}}'">
+<div>
+<span class="material-symbols-outlined text-error mb-4">favorite</span>
+<h3 class="font-headline-md text-body-lg font-bold mb-2 text-on-surface">Kesehatan Jantung dan Kesejahteraan Mental</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Studi terbaru menunjukkan hubungan kuat antara stress level dan performa jantung.</p>
+</div>
+<div class="mt-stack-md pt-stack-sm border-t border-outline-variant">
+<span class="font-caption text-caption text-outline">4 Menit Baca</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 group">
+<div class="tonal-card rounded-xl p-stack-md border border-outline-variant h-full flex flex-col justify-between transition-all duration-700 opacity-100 translate-y-0 cursor-pointer" onclick="window.location.href='#{{DATA:SCREEN:SCREEN_11}}'">
+<div>
+<span class="material-symbols-outlined text-surface-tint mb-4">groups</span>
+<h3 class="font-headline-md text-body-lg font-bold mb-2 text-on-surface">Membangun Support System yang Sehat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Cara berkomunikasi dengan orang terdekat mengenai kondisi mental Anda.</p>
+</div>
+<div class="mt-stack-md pt-stack-sm border-t border-outline-variant">
+<span class="font-caption text-caption text-outline">7 Menit Baca</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="mt-stack-lg p-stack-lg rounded-2xl bg-primary-container/10 border border-primary/20">
+<div class="flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="flex-1 space-y-stack-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">Dapatkan Update Kesehatan Mingguan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Bergabunglah dengan 50.000+ orang lainnya yang menerima tips kesehatan mental langsung ke email mereka setiap Senin pagi.</p>
+</div>
+<div class="w-full md:w-auto flex flex-col sm:flex-row gap-stack-sm">
+<input class="px-6 py-3 rounded-xl border border-outline outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-md text-body-md min-w-[300px]" placeholder="Alamat email Anda" type="email">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm active:scale-95 cursor-pointer hover:opacity-90">Berlangganan</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant">
+<div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">MediGuide</span>
+<div class="flex flex-wrap gap-gutter">
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
+</div>
+</div>
+<p class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md max-w-3xl">
+                © 2024 MediGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
+            </p>
+</div>
+</footer>
+<!-- FAB (Suppressed based on rules for educational page, but added placeholder logic if needed for specific actions) -->
+<script>
+        // Micro-interactions for category filtering
+        const buttons = document.querySelectorAll('button.whitespace-nowrap');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface', 'border', 'border-outline-variant', 'text-on-surface-variant');
+                });
+                btn.classList.remove('bg-surface', 'border', 'border-outline-variant', 'text-on-surface-variant');
+                btn.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.tonal-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>

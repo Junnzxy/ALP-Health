@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pusat Informasi Penyakit Menular | MediGuide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#5b646b",
+                      "outline": "#727783",
+                      "on-primary-fixed": "#001b3d",
+                      "surface-bright": "#f8f9fa",
+                      "secondary-fixed": "#dbe4ed",
+                      "error": "#ba1a1a",
+                      "surface-container": "#edeeef",
+                      "secondary": "#575f67",
+                      "on-tertiary-fixed": "#001c3b",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#005eb8",
+                      "on-secondary-fixed-variant": "#3f484f",
+                      "surface": "#f8f9fa",
+                      "primary-fixed-dim": "#a9c7ff",
+                      "on-surface-variant": "#424752",
+                      "on-surface": "#191c1d",
+                      "tertiary-container": "#3e6091",
+                      "primary-fixed": "#d6e3ff",
+                      "outline-variant": "#c2c6d4",
+                      "on-tertiary-container": "#c6dbff",
+                      "secondary-container": "#d8e1ea",
+                      "primary": "#00478d",
+                      "surface-tint": "#005db6",
+                      "inverse-on-surface": "#f0f1f2",
+                      "tertiary-fixed": "#d5e3ff",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-dim": "#d9dadb",
+                      "on-background": "#191c1d",
+                      "inverse-primary": "#a9c7ff",
+                      "on-tertiary-fixed-variant": "#234776",
+                      "on-primary-container": "#c8daff",
+                      "background": "#f8f9fa",
+                      "surface-container-low": "#f3f4f5",
+                      "secondary-fixed-dim": "#bfc8d0",
+                      "tertiary": "#244877",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#2e3132",
+                      "surface-variant": "#e1e3e4",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#a6c8ff",
+                      "on-secondary-fixed": "#141d23",
+                      "surface-container-high": "#e7e8e9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#00468c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "stack-sm": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "stack-md": "16px",
+                      "unit": "8px",
+                      "container-max": "1200px",
+                      "stack-lg": "32px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-xl-mobile": ["Inter"],
+                      "caption": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm sticky top-0 z-50 transition-all duration-200">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-16 max-w-container-max mx-auto">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="coronavirus">coronavirus</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">MediGuide</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a href="Edukasi.html" class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">Edukasi</a>
+<a href="Chatbot.html" class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1" href="#">Cek Gejala</a>
+<a href="Dashboard.html" class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">Dashboard</a>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low rounded-lg p-2 transition-all active:scale-95" data-icon="notifications">notifications</button>
+<a href="Akun.html">
+<img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
+</a>
+</div>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Hero Section -->
+<section class="mb-stack-lg animate-in fade-in duration-700">
+<div class="relative rounded-xl overflow-hidden bg-primary p-stack-lg md:p-12 min-h-[320px] flex flex-col justify-center text-on-primary shadow-lg">
+<div class="absolute inset-0 z-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="A clean, high-resolution scientific visualization of microscopic virus structures drifting in a deep blue fluid environment. The lighting is soft and professional, using a clinical blue and white color palette to evoke authority and trust. The composition is spacious and minimalist, perfect for a high-end medical dashboard background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDakZBQGkqRFYZlzWdzAFsAVTsSbH-LdAXbxdzYrSd228zRhyGl3T16tmGyKmkg7fGIBwxmSXTd3mn-WIYAAeGUbQSDkl-1KmylYIfeHRJGkNqNBDoUFz2A-KsPacov_94JEJS96WesrpS265H9ZAtpelfVg8c2blf00biMIf-vTNCwAgfzQ2MFS2baVmfErkLSZ_qezGggqKmiwhKmI-44rmDFQxJ1Gdzvp_DSWZ_oc3BKQaqS36IhXWVpGu9Vi1Q4g8L8qGRQ7Ow"/>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-headline-xl text-headline-xl mb-stack-md leading-tight">Pusat Informasi Penyakit Menular</h1>
+<p class="font-body-lg text-body-lg opacity-90 mb-stack-lg">
+                        Pantau perkembangan status kesehatan terkini, pelajari protokol pencegahan, dan akses informasi medis terverifikasi untuk melindungi diri dan keluarga Anda.
+                    </p>
+<div class="flex flex-wrap gap-stack-md">
+<div class="flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30">
+<span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+<span class="text-label-md font-medium">Status Lokal: Terkendali</span>
+</div>
+<div class="flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30">
+<span class="material-symbols-outlined text-[18px]" data-icon="public">public</span>
+<span class="text-label-md font-medium">WHO: Monitor Pandemi Aktif</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats and Alerts Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-stack-lg">
+<!-- Health Alerts -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30 h-full">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+                        Peringatan Kesehatan
+                    </h2>
+</div>
+<div class="space-y-stack-md">
+<div class="p-4 rounded-lg bg-error-container/40 border-l-4 border-error">
+<h3 class="font-bold text-on-error-container text-body-md">COVID-19: Varian Baru</h3>
+<p class="text-sm text-on-error-container/80 mt-1">Peningkatan kasus varian baru terdeteksi di wilayah perkotaan. Tetap gunakan masker di ruang tertutup.</p>
+<span class="inline-block mt-2 text-xs font-bold text-error uppercase">Peringatan Tinggi</span>
+</div>
+<div class="p-4 rounded-lg bg-secondary-container/40 border-l-4 border-secondary">
+<h3 class="font-bold text-on-secondary-container text-body-md">Flu Musiman</h3>
+<p class="text-sm text-on-secondary-container/80 mt-1">Musim penghujan meningkatkan risiko penularan flu. Pastikan asupan vitamin cukup.</p>
+<span class="inline-block mt-2 text-xs font-bold text-secondary uppercase">Monitor Berkala</span>
+</div>
+</div>
+</div>
+<!-- Statistics Grid -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-stack-md gap-4">
+<h2 class="font-headline-md text-headline-md">Statistik Terkini (Nasional)</h2>
+<div class="flex bg-surface-container rounded-lg p-1">
+<button class="px-4 py-1 text-label-md font-bold bg-white shadow-sm rounded-md transition-all">Hari Ini</button>
+<button class="px-4 py-1 text-label-md text-on-surface-variant hover:text-primary transition-colors">7 Hari Terakhir</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-stack-md">
+<div class="p-4 rounded-xl bg-surface-container-low text-center transition-all hover:-translate-y-1">
+<p class="text-caption text-on-surface-variant uppercase tracking-wider mb-1">Kasus Aktif</p>
+<h4 class="text-headline-md font-bold text-primary">12,450</h4>
+<p class="text-[11px] text-error font-medium mt-1">↑ 2.4% dr kemarin</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low text-center transition-all hover:-translate-y-1">
+<p class="text-caption text-on-surface-variant uppercase tracking-wider mb-1">Kesembuhan</p>
+<h4 class="text-headline-md font-bold text-green-600">8,932</h4>
+<p class="text-[11px] text-green-600 font-medium mt-1">↑ 1.8% dr kemarin</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low text-center transition-all hover:-translate-y-1">
+<p class="text-caption text-on-surface-variant uppercase tracking-wider mb-1">Vaksinasi D3</p>
+<h4 class="text-headline-md font-bold text-secondary">68.4%</h4>
+<p class="text-[11px] text-on-surface-variant font-medium mt-1">Target: 80%</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low text-center transition-all hover:-translate-y-1">
+<p class="text-caption text-on-surface-variant uppercase tracking-wider mb-1">Kapasitas RS</p>
+<h4 class="text-headline-md font-bold text-on-surface">32.1%</h4>
+<p class="text-[11px] text-green-600 font-medium mt-1">Status: Aman</p>
+</div>
+</div>
+<!-- Visual Trend Line Replacement -->
+<div class="mt-stack-lg h-32 w-full flex items-end gap-2 px-2">
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full h-[40%] rounded-t-sm" title="Senin"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full h-[55%] rounded-t-sm" title="Selasa"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full h-[45%] rounded-t-sm" title="Rabu"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full h-[60%] rounded-t-sm" title="Kamis"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full h-[75%] rounded-t-sm" title="Jumat"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full h-[85%] rounded-t-sm" title="Sabtu"></div>
+<div class="bg-primary/60 w-full h-[95%] rounded-t-sm" title="Minggu (Hari Ini)"></div>
+</div>
+</div>
+</section>
+<!-- Prevention Protocols -->
+<section class="mb-stack-lg">
+<div class="flex flex-col md:flex-row items-baseline justify-between mb-stack-md">
+<h2 class="font-headline-lg text-headline-lg mb-2">Protokol Pencegahan</h2>
+<p class="text-on-surface-variant">Langkah sederhana untuk perlindungan maksimal.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="group bg-white rounded-xl p-stack-md border border-outline-variant hover:border-primary transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary-fixed mb-stack-md flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="masks">masks</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Gunakan Masker</h3>
+<p class="text-on-surface-variant text-body-md">Selalu gunakan masker saat berada di kerumunan atau ruangan dengan ventilasi buruk.</p>
+</div>
+<div class="group bg-white rounded-xl p-stack-md border border-outline-variant hover:border-primary transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary-fixed mb-stack-md flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="wash">wash</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Cuci Tangan</h3>
+<p class="text-on-surface-variant text-body-md">Cuci tangan dengan sabun selama 20 detik secara berkala, terutama sebelum menyentuh wajah.</p>
+</div>
+<div class="group bg-white rounded-xl p-stack-md border border-outline-variant hover:border-primary transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary-fixed mb-stack-md flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="vaccines">vaccines</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Vaksinasi Lengkap</h3>
+<p class="text-on-surface-variant text-body-md">Lengkapi dosis vaksinasi dan booster sesuai jadwal untuk memperkuat sistem imun tubuh.</p>
+</div>
+</div>
+</section>
+<!-- Verified Education - Bento Style -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg mb-stack-md">Edukasi Terverifikasi</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[500px]">
+<!-- Large Card -->
+<div class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group cursor-pointer shadow-lg">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional medical photograph of a modern healthcare facility with a blurred doctor in the background holding a digital tablet. The foreground is clear, showing clean surfaces and clinical lighting. The atmosphere is calm and trustworthy, using the brand's primary blue and white tones to represent high-quality health education." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4efEOuaOZHZ2KFiYFWXQE4yx4R8RTaCqVsbRXm-7njwnI5OsrbohKDDIYPoi3VULrwWsvkQ_YdwyePls7ejLt1oxJMKm9VSBOc_OtWYXYZt1po38HQYrTOfvAUZPM9jPLejMx712eqjeeQrA4-7Yn_qfV8ISZqqJ8bPAze-ftLzBhLRH0-wt6sztkdgIqAa9PAhmjCLfVuwiJueDVz679_Oa3cGQZdOebdA75n1aMLk8lUGhZj33LJrNwCx3h4pD9zVTjX6s-fDg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-stack-lg flex flex-col justify-end">
+<span class="bg-primary text-white text-[10px] font-bold uppercase py-1 px-3 rounded-full w-fit mb-2">Panduan Utama</span>
+<h3 class="text-white font-headline-lg text-headline-lg mb-2">Mengenal Gejala Dini &amp; Deteksi Mandiri</h3>
+<p class="text-white/80 line-clamp-2">Langkah awal yang harus dilakukan saat Anda atau keluarga mulai merasakan gejala tidak biasa.</p>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="md:col-span-2 relative rounded-xl overflow-hidden group cursor-pointer border border-outline-variant shadow-sm">
+<div class="absolute inset-0 bg-primary-container/10 group-hover:bg-primary-container/20 transition-colors"></div>
+<div class="relative p-stack-md h-full flex flex-col justify-between">
+<div>
+<span class="text-primary font-bold text-xs uppercase mb-2 block">Vaksinasi</span>
+<h3 class="font-headline-md text-headline-md mb-2">Manfaat Booster untuk Varian Baru</h3>
+<p class="text-on-surface-variant text-sm">Bagaimana booster melindungi Anda dari mutasi virus yang terus berkembang.</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-bold text-sm mt-4">
+                            Baca Selengkapnya <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-1 relative rounded-xl overflow-hidden group cursor-pointer bg-tertiary-container/10 border border-outline-variant shadow-sm">
+<div class="p-4 h-full flex flex-col">
+<span class="material-symbols-outlined text-tertiary mb-2" data-icon="science">science</span>
+<h3 class="font-bold text-on-surface mb-2 leading-tight">Debunking Hoax Medis</h3>
+<p class="text-xs text-on-surface-variant">Kumpulan fakta medis untuk melawan misinformasi kesehatan.</p>
+</div>
+</div>
+<!-- Small Card 3 -->
+<div class="md:col-span-1 relative rounded-xl overflow-hidden group cursor-pointer bg-secondary-container/10 border border-outline-variant shadow-sm">
+<div class="p-4 h-full flex flex-col">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="emergency">emergency</span>
+<h3 class="font-bold text-on-surface mb-2 leading-tight">Kontak Darurat Terdekat</h3>
+<p class="text-xs text-on-surface-variant">Daftar rumah sakit rujukan infeksi di wilayah Anda.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-surface-container-high rounded-2xl p-stack-lg text-center md:flex md:items-center md:justify-between md:text-left shadow-inner">
+<div class="mb-stack-md md:mb-0">
+<h2 class="font-headline-lg text-headline-lg mb-2">Merasa tidak enak badan?</h2>
+<p class="text-on-surface-variant">Lakukan pemeriksaan gejala awal secara cepat dengan asisten virtual kami.</p>
+</div>
+<button class="bg-primary text-white font-label-md text-label-md px-10 py-4 rounded-full shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95 flex items-center gap-2 mx-auto md:mx-0">
+<a href="Chatbot.html" class="material-symbols-outlined" data-icon="smart_toy">smart_toy <a href="Chatbot.html"> Cek Gejala Sekarang</a>
+                
+</button>
+</section>
+</main>
+<!-- Footer Section -->
+<footer class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline mt-stack-lg">
+<div class="w-full py-stack-lg px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-container-max mx-auto">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="coronavirus">coronavirus</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">MediGuide</span>
+</div>
+<p class="font-caption text-caption text-on-surface max-w-md opacity-80 mb-6">
+                    © 2024 MediGuide. For educational purposes only. Always consult a medical professional for clinical advice.
+                </p>
+<div class="flex flex-wrap gap-x-6 gap-y-3">
+<a class="text-on-secondary-container hover:underline decoration-primary transition-opacity text-sm" href="#">Tentang Kami</a>
+<a class="text-on-secondary-container hover:underline decoration-primary transition-opacity text-sm" href="#">Pusat Bantuan</a>
+<a class="text-on-secondary-container hover:underline decoration-primary transition-opacity text-sm" href="#">Kebijakan Privasi</a>
+</div>
+</div>
+<div class="flex flex-col md:items-end justify-between">
+<div class="flex flex-wrap md:justify-end gap-x-6 gap-y-3 mb-6">
+<a class="text-on-secondary-container hover:underline decoration-primary text-sm" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-secondary-container hover:underline decoration-primary text-sm" href="#">Debunking Hoax</a>
+<a class="text-primary font-bold text-sm" href="#">Kontak Darurat</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for smooth experience
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        // Simple scroll reveal effect for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in', 'fade-in', 'slide-in-from-bottom-4', 'duration-500');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
