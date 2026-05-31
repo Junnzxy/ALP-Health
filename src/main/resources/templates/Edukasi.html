@@ -1,144 +1,15 @@
 <!DOCTYPE html>
-<html class="light" lang="id">
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "outline-variant": "#c2c6d4",
-                    "on-secondary-fixed": "#141d23",
-                    "tertiary-fixed-dim": "#a6c8ff",
-                    "on-primary-fixed": "#001b3d",
-                    "on-surface-variant": "#424752",
-                    "on-tertiary-fixed-variant": "#234776",
-                    "tertiary-fixed": "#d5e3ff",
-                    "surface-container-highest": "#e1e3e4",
-                    "primary-fixed": "#d6e3ff",
-                    "surface-bright": "#f8f9fa",
-                    "tertiary": "#244877",
-                    "on-primary-fixed-variant": "#00468c",
-                    "secondary-fixed-dim": "#bfc8d0",
-                    "error-container": "#ffdad6",
-                    "primary-container": "#005eb8",
-                    "outline": "#727783",
-                    "primary": "#00478d",
-                    "surface-container": "#edeeef",
-                    "on-secondary": "#ffffff",
-                    "error": "#ba1a1a",
-                    "surface-container-low": "#f3f4f5",
-                    "on-error-container": "#93000a",
-                    "tertiary-container": "#3e6091",
-                    "on-primary-container": "#c8daff",
-                    "on-secondary-fixed-variant": "#3f484f",
-                    "on-error": "#ffffff",
-                    "surface-dim": "#d9dadb",
-                    "surface-variant": "#e1e3e4",
-                    "on-surface": "#191c1d",
-                    "background": "#f8f9fa",
-                    "secondary": "#575f67",
-                    "inverse-primary": "#a9c7ff",
-                    "on-tertiary-container": "#c6dbff",
-                    "primary-fixed-dim": "#a9c7ff",
-                    "surface-container-high": "#e7e8e9",
-                    "on-tertiary": "#ffffff",
-                    "surface-tint": "#005db6",
-                    "on-tertiary-fixed": "#001c3b",
-                    "surface": "#f8f9fa",
-                    "inverse-surface": "#2e3132",
-                    "on-secondary-container": "#5b646b",
-                    "secondary-container": "#d8e1ea",
-                    "secondary-fixed": "#dbe4ed",
-                    "on-background": "#191c1d",
-                    "inverse-on-surface": "#f0f1f2",
-                    "surface-container-lowest": "#ffffff",
-                    "on-primary": "#ffffff"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-desktop": "40px",
-                    "stack-md": "16px",
-                    "unit": "8px",
-                    "gutter": "24px",
-                    "stack-sm": "8px",
-                    "margin-mobile": "16px",
-                    "container-max": "1200px",
-                    "stack-lg": "32px"
-            },
-            "fontFamily": {
-                    "headline-lg-mobile": ["Inter"],
-                    "label-md": ["Inter"],
-                    "caption": ["Inter"],
-                    "headline-xl-mobile": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "body-md": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "headline-xl": ["Inter"],
-                    "headline-md": ["Inter"]
-            },
-            "fontSize": {
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
-            }
-          },
-        },
-      }
-    </script>
+<html class="light" lang="id" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments :: head('Edukasi')}"></head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
 <style>
         body { background-color: #f8f9fa; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
         .custom-shadow { box-shadow: 0px 4px 20px rgba(0,0,0,0.04); }
     </style>
-</head>
-<body class="text-on-surface">
-<!-- TopAppBar -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-surface shadow-sm h-16">
-<nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
-<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95 transition-all">MediGuide</a>
-<div class="hidden md:flex gap-gutter items-center h-full">
-<a href="Edukasi.html" class="text-primary font-bold border-b-2 border-primary h-full flex items-center px-2" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
-<a href="Chatbot.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors flex items-center px-2" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
-<a href="Dashboard.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors flex items-center px-2" href="{{DATA:SCREEN:SCREEN_16}}">Dashboard</a>
-
-
-
-
-
-</div>
-<div class="flex items-center gap-stack-md">
-<div class="relative hidden sm:block">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
-<input class="pl-10 pr-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none text-body-md w-64 transition-all" placeholder="Cari penyakit..." type="text" onkeypress="if(event.key === 'Enter') alert('Mencari ' + this.value + '...')">
-</div>
-<a href="Notifikasi.html" class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-all p-2 rounded-full hover:bg-surface-container">notifications</a>
-<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_7}}'">
-<a href="Akun.html">
-<img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
-</a>
-</div>
-</div>
-</nav>
-</header>
+<header th:replace="~{fragments :: navbar('edukasi')}"></header>
 <main class="pt-24 pb-stack-lg max-w-container-max mx-auto px-margin-desktop">
 <!-- Hero Search Section -->
 <section class="mb-stack-lg text-center md:text-left">
@@ -154,25 +25,25 @@
 </section>
 <!-- Category Bento Grid -->
 <section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-lg">
-<div class="group relative overflow-hidden rounded-xl bg-primary-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95" onclick="window.location.href='{{DATA:SCREEN:SCREEN_6}}'">
+<div class="group relative overflow-hidden rounded-xl bg-primary-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95" onclick="window.location.href='#'">
 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
 <span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">coronavirus</span>
 </div>
 <div class="z-10">
-<a href="PusatInformasi.html" class="text-on-primary-container font-headline-md text-headline-md block">Penyakit Menular</a>
+<a href="/informasi" class="text-on-primary-container font-headline-md text-headline-md block">Penyakit Menular</a>
 </div>
 <span class="z-10 text-on-primary-container/80 text-body-md flex items-center gap-1">Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-tertiary-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95" onclick="window.location.href='{{DATA:SCREEN:SCREEN_6}}'">
+<div class="group relative overflow-hidden rounded-xl bg-tertiary-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95" onclick="window.location.href='#'">
 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
 <span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
 </div>
 <div class="z-10">
-<a href="KesehatanMental.html" class="text-on-tertiary-container font-headline-md text-headline-md block">Kesehatan Mental</a>
+<a href="/edukasi/mental" class="text-on-tertiary-container font-headline-md text-headline-md block">Kesehatan Mental</a>
 </div>
 <span class="z-10 text-on-tertiary-container/80 text-body-md flex items-center gap-1">Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-secondary-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95" onclick="window.location.href='{{DATA:SCREEN:SCREEN_6}}'">
+<div class="group relative overflow-hidden rounded-xl bg-secondary-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95" onclick="window.location.href='#'">
 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
 <span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
 </div>
@@ -181,14 +52,14 @@
 </div>
 <span class="z-10 text-on-secondary-container/80 text-body-md flex items-center gap-1">Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
 </div>
-<div class="group relative overflow-hidden rounded-xl bg-error-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95 border-2 border-dashed border-error/30" onclick="window.location.href='{{DATA:SCREEN:SCREEN_17}}'">
+<div class="group relative overflow-hidden rounded-xl bg-error-container p-stack-md flex flex-col justify-between h-48 cursor-pointer transition-transform hover:scale-[1.02] active:scale-95 border-2 border-dashed border-error/30" onclick="window.location.href='#'">
 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
 <span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">gpp_maybe</span>
 </div>
 <div class="z-10">
 <span class="text-on-error-container font-headline-md text-headline-md block">Klarifikasi Hoaks</span>
 </div>
-<a href="Hoaks.html">
+<a href="/hoaks">
 <span class="z-10 text-on-error-container/80 text-body-md flex items-center gap-1">Cek Fakta <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
 </a>
 </div>
@@ -202,7 +73,7 @@
 <button class="text-primary font-label-md hover:underline">Lihat Semua Artikel</button>
 </div>
 <!-- Article Card 1 -->
-<article class="bg-surface-container-lowest rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-shadow group cursor-pointer border border-outline-variant/30" style="transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;" onclick="window.location.href='{{DATA:SCREEN:SCREEN_12}}'">
+<article class="bg-surface-container-lowest rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-shadow group cursor-pointer border border-outline-variant/30" style="transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;" onclick="window.location.href='#'">
 <div class="md:w-1/3 h-48 rounded-lg overflow-hidden shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, minimalist medical illustration of blood sugar monitoring equipment on a pristine white desk. The lighting is soft and natural, with a professional blue and white theme. The image conveys clinical accuracy and calm authority, matching the medical verification of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVJpSCzHw2xezLf-cKIO6rQmsmbLPXjNlMJpZ4h7FqJ5MIK0v-agZhGrLOAkyTtbaSDW0TtlhhUadPneFejCfYx2CQO_MAng-OmsHW25PMhlDGj8ZQTAIYcD0gKHXLvAcbQi98AeKUo4uCM92wsFGqbb3k4zNtb0A3YdOAY1vYc8gWzNv2iIasiZ7WQ9dLQLeWlJVdsiMfsKJHgi5yx1_6Yrup9bdFyOCAOkQ2UXp4AsrK_BtWW6EHN7nODuUiKtNAKEebrUSWFk8">
 </div>
@@ -213,7 +84,7 @@
 <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span> Terverifikasi Medis</span>
 <span class="text-outline text-caption">5 Menit Baca</span>
 </div>
-<a href="Artikel1.html" class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Mengenal Gejala Awal Diabetes Tipe 2 pada Usia Muda</a>
+<a href="/edukasi/artikel/1" class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Mengenal Gejala Awal Diabetes Tipe 2 pada Usia Muda</a>
 <p class="text-on-surface-variant text-body-md mt-2 line-clamp-2">Diabetes tipe 2 bukan lagi penyakit orang tua. Pelajari tanda-tanda yang sering diabaikan dan cara pencegahannya sejak dini.</p>
 </div>
 <div class="flex items-center gap-3 mt-4">
@@ -226,7 +97,7 @@
 </div>
 </article>
 <!-- Article Card 2 -->
-<article class="bg-surface-container-lowest rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-shadow group cursor-pointer border border-outline-variant/30" style="transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;" onclick="window.location.href='{{DATA:SCREEN:SCREEN_12}}'">
+<article class="bg-surface-container-lowest rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-shadow group cursor-pointer border border-outline-variant/30" style="transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;" onclick="window.location.href='#'">
 <div class="md:w-1/3 h-48 rounded-lg overflow-hidden shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A peaceful image showing a person practicing yoga in a bright, airy room filled with plants. The lighting is ethereal and soft, promoting a sense of mental well-being and tranquility. The color palette consists of soft greens, whites, and light blues, creating a human-touch medical wellness feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2V1F_A-aiKPSEU02kFKsnpQR8KoKBu46Q4ZKo3DfHjdI04zVVkB-gV14Bn9-cfkGm0d1KG_iq-3QsSKP8wWMVM2nQqdjyB1Hfx47aPs6zGcibCKzqxf3PI7WgWP0s2zARDgYH24uBFndEm2Y37GtiAanBGnCmWcoMbR2jYHcubLOEFjP34oLlh-20q1zwl1JgzgRmLkzqqnpyAx2Y3ZogWWqm4_senocmeZkvj--Dkvtsf-SKrr7LBUeeHlHQf_mLbj1d55zaKvA">
 </div>
@@ -238,7 +109,7 @@
                                 </span>
 <span class="text-outline text-caption">8 Menit Baca</span>
 </div>
-<a href="KesehatanMental.html" class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Menjaga Kesehatan Mental di Era Digital</a>
+<a href="/edukasi/mental" class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Menjaga Kesehatan Mental di Era Digital</a>
 <p class="text-on-surface-variant text-body-md mt-2 line-clamp-2">Bagaimana membatasi penggunaan media sosial demi kesehatan mental yang lebih baik dan hidup yang lebih bermakna.</p>
 </div>
 <div class="flex items-center gap-3 mt-4">
@@ -251,7 +122,7 @@
 </div>
 </article>
 <!-- Article Card 3 -->
-<article class="bg-surface-container-lowest rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-shadow group cursor-pointer border border-outline-variant/30" style="transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;" onclick="window.location.href='{{DATA:SCREEN:SCREEN_12}}'">
+<article class="bg-surface-container-lowest rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_8px_30px_rgba(0,0,0,0.08)] transition-shadow group cursor-pointer border border-outline-variant/30" style="transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;" onclick="window.location.href='#'">
 <div class="md:w-1/3 h-48 rounded-lg overflow-hidden shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed clinical shot of a medical researcher examining a test tube in a state-of-the-art laboratory. The lighting is cool-toned blue, emphasizing professional scientific authority and precision. The composition is clean and focused, reflecting high-end medical research standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-sQdtVk9dMtj8wZAoSeU2DXMvnK5BjrtJsMXsOGS3DhT_gRNPRblwa7Psc4CnZxDXqTkP4V01jDP6PDhAvtlBSo-bOIrnjXJKoiwGD6wFxLqtAD_8opP4JcCBx0ygR1gJsjjdHlFuqUAtNPJiZd84FWH0xUdj2moQfrWDPWDLw3oJZLM5LPu-7BlfJy9HfAsX5xuQkUCCb0oAucvx2StJFPnboJzn2QEMOHU4-F3mWrubimWpMpL5JFnm0t4V8f_wubKHQqR0pt4">
 </div>
@@ -316,7 +187,7 @@
 </div>
 </div>
 </div>
-<button class="w-full mt-stack-md py-3 bg-error text-white rounded-lg font-label-md active:scale-95 transition-all" onclick="window.location.href='{{DATA:SCREEN:SCREEN_17}}'">Lihat Selengkapnya</button>
+<button class="w-full mt-stack-md py-3 bg-error text-white rounded-lg font-label-md active:scale-95 transition-all" onclick="window.location.href='#'">Lihat Selengkapnya</button>
 </div>
 <!-- Newsletter/Subscription -->
 <div class="bg-primary-container p-stack-md rounded-xl text-on-primary-container">
@@ -328,44 +199,7 @@
 </aside>
 </div>
 </main>
-<!-- Footer -->
-<footer class="bg-surface-container-low border-t border-outline-variant">
-<div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
-<div class="flex flex-col md:flex-row justify-between items-start gap-stack-md">
-<div class="max-w-sm">
-<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary mb-2">MediGuide</a>
-<p class="text-on-surface-variant text-body-md">Membangun masyarakat yang lebih sehat melalui informasi yang transparan, akurat, dan mudah diakses.</p>
-</div>
-<div class="grid grid-cols-2 gap-stack-lg md:gap-gutter">
-<div class="flex flex-col gap-2">
-<span class="font-bold text-on-surface mb-2">Layanan</span>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Tanya Dokter</a>
-</div>
-<div class="flex flex-col gap-2">
-<span class="font-bold text-on-surface mb-2">Perusahaan</span>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="{{DATA:SCREEN:SCREEN_14}}">Tentang Kami</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="{{DATA:SCREEN:SCREEN_8}}">Karir</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Hubungi Kami</a>
-</div>
-</div>
-</div>
-<div class="flex flex-wrap gap-4 pt-stack-md border-t border-outline-variant/30">
-<a class="text-on-surface-variant text-body-md hover:underline hover:text-primary" href="{{DATA:SCREEN:SCREEN_14}}">Kebijakan Privasi</a>
-<a class="text-on-surface-variant text-body-md hover:underline hover:text-primary" href="{{DATA:SCREEN:SCREEN_8}}">Syarat &amp; Ketentuan</a>
-<a class="text-on-surface-variant text-body-md hover:underline hover:text-primary" href="#">Sumber Terpercaya</a>
-</div>
-<p class="text-on-surface-variant text-body-md">© 2024 MediGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
-</div>
-</footer>
-<!-- Floating Action Button (Only for relevant screens) -->
-<div class="fixed bottom-8 right-8 z-50">
-<button class="bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform group overflow-hidden">
-<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
-<span class="max-w-0 group-hover:max-w-xs group-hover:ml-2 overflow-hidden transition-all duration-300 font-bold text-sm whitespace-nowrap">Tanya AI</span>
-</button>
-</div>
+<footer th:replace="~{fragments :: footer}"></footer>
 <script>
         // Micro-interaction for hover effects on cards
         document.querySelectorAll('article').forEach(card => {
@@ -378,6 +212,5 @@
             card.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease';
         });
     </script>
-
 </body>
 </html>

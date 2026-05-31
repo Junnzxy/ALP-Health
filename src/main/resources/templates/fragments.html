@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- ============================================================
+     FRAGMENT: head
+     Gunakan: <th:block th:replace="~{fragments :: head('Judul Halaman')}"/>
+     ============================================================ -->
+<head th:fragment="head(title)">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title th:text="${title} + ' - MediGuide'">MediGuide</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c2c6d4",
+                    "on-secondary-fixed": "#141d23",
+                    "tertiary-fixed-dim": "#a6c8ff",
+                    "on-primary-fixed": "#001b3d",
+                    "on-surface-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#234776",
+                    "tertiary-fixed": "#d5e3ff",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-bright": "#f8f9fa",
+                    "tertiary": "#244877",
+                    "on-primary-fixed-variant": "#00468c",
+                    "secondary-fixed-dim": "#bfc8d0",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#005eb8",
+                    "outline": "#727783",
+                    "primary": "#00478d",
+                    "surface-container": "#edeeef",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f5",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#3e6091",
+                    "on-primary-container": "#c8daff",
+                    "on-secondary-fixed-variant": "#3f484f",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d9dadb",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface": "#191c1d",
+                    "background": "#f8f9fa",
+                    "secondary": "#575f67",
+                    "inverse-primary": "#a9c7ff",
+                    "on-tertiary-container": "#c6dbff",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#005db6",
+                    "on-tertiary-fixed": "#001c3b",
+                    "surface": "#f8f9fa",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-container": "#5b646b",
+                    "secondary-container": "#d8e1ea",
+                    "secondary-fixed": "#dbe4ed",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            "spacing": {
+                    "margin-desktop": "40px", "stack-md": "16px", "unit": "8px",
+                    "gutter": "24px", "stack-sm": "8px", "margin-mobile": "16px",
+                    "container-max": "1200px", "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "caption": ["Inter"],
+                    "headline-xl-mobile": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"],
+                    "headline-lg": ["Inter"], "headline-xl": ["Inter"], "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+
+<!-- ============================================================
+     FRAGMENT: navbar
+     Param activeNav: "edukasi" | "gejala" | "dashboard"
+     ============================================================ -->
+<header th:fragment="navbar(activeNav)" class="bg-surface shadow-sm sticky top-0 z-50">
+    <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
+        <a href="/dashboard" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">MediGuide</a>
+        <nav class="hidden md:flex gap-gutter">
+            <a href="/edukasi"
+               th:classappend="${activeNav == 'edukasi'} ? 'text-primary font-bold border-b-2 border-primary' : 'text-on-surface-variant font-medium hover:text-primary transition-colors'"
+               class="cursor-pointer">Edukasi</a>
+            <a href="/chat/start"
+               th:classappend="${activeNav == 'gejala'} ? 'text-primary font-bold border-b-2 border-primary' : 'text-on-surface-variant font-medium hover:text-primary transition-colors'"
+               class="cursor-pointer">Cek Gejala</a>
+            <a href="/dashboard"
+               th:classappend="${activeNav == 'dashboard'} ? 'text-primary font-bold border-b-2 border-primary' : 'text-on-surface-variant font-medium hover:text-primary transition-colors'"
+               class="cursor-pointer">Dashboard</a>
+        </nav>
+        <div class="flex items-center gap-stack-md">
+            <a href="/notifikasi" class="cursor-pointer transition-all active:scale-95 text-on-surface-variant flex items-center justify-center">
+                <span class="material-symbols-outlined">notifications</span>
+            </a>
+            <a href="/akun">
+                <!-- Tampilkan inisial user jika tidak ada foto -->
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center cursor-pointer active:scale-95 border border-outline-variant">
+                    <span class="text-on-primary font-bold text-label-md"
+                          sec:authentication="name" th:text="${#strings.substring(#authentication.name, 0, 1).toUpperCase()}">U</span>
+                </div>
+            </a>
+            <!-- Logout -->
+            <form th:action="@{/api/auth/logout}" method="post" class="inline">
+                <button type="submit" class="text-caption text-on-surface-variant hover:text-error transition-colors cursor-pointer ml-1" title="Logout">
+                    <span class="material-symbols-outlined text-[18px]">logout</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     FRAGMENT: footer
+     ============================================================ -->
+<footer th:fragment="footer" class="bg-surface-container-low border-t border-outline-variant mt-auto">
+    <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-gutter">
+            <a href="/dashboard" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">MediGuide</a>
+            <div class="flex flex-wrap gap-gutter">
+                <a class="text-on-surface-variant hover:underline hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
+                <a class="text-on-surface-variant hover:underline hover:text-primary transition-colors" href="#">Syarat &amp; Ketentuan</a>
+                <a class="text-on-surface-variant hover:underline hover:text-primary transition-colors" href="#">Hubungi Kami</a>
+                <a class="text-on-surface-variant hover:underline hover:text-primary transition-colors" href="#">Sumber Terpercaya</a>
+            </div>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-stack-md">
+            © 2024 MediGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
+        </p>
+    </div>
+</footer>
+
+</html>

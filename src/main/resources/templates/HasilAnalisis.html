@@ -1,105 +1,7 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Hasil Analisis &amp; Edukasi - MediGuide</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "secondary": "#575f67",
-                        "on-primary": "#ffffff",
-                        "secondary-fixed": "#dbe4ed",
-                        "surface-container-low": "#f3f4f5",
-                        "on-error-container": "#93000a",
-                        "inverse-primary": "#a9c7ff",
-                        "surface-tint": "#005db6",
-                        "on-error": "#ffffff",
-                        "outline-variant": "#c2c6d4",
-                        "surface-container-high": "#e7e8e9",
-                        "on-surface-variant": "#424752",
-                        "background": "#f8f9fa",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#e1e3e4",
-                        "on-secondary-fixed-variant": "#3f484f",
-                        "primary-container": "#005eb8",
-                        "on-secondary-fixed": "#141d23",
-                        "on-secondary": "#ffffff",
-                        "tertiary-fixed": "#d5e3ff",
-                        "secondary-fixed-dim": "#bfc8d0",
-                        "primary-fixed": "#d6e3ff",
-                        "on-primary-fixed-variant": "#00468c",
-                        "tertiary-fixed-dim": "#a6c8ff",
-                        "inverse-on-surface": "#f0f1f2",
-                        "primary-fixed-dim": "#a9c7ff",
-                        "error": "#ba1a1a",
-                        "on-background": "#191c1d",
-                        "on-surface": "#191c1d",
-                        "surface-variant": "#e1e3e4",
-                        "on-tertiary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#234776",
-                        "surface-container-lowest": "#ffffff",
-                        "on-primary-fixed": "#001b3d",
-                        "surface": "#f8f9fa",
-                        "secondary-container": "#d8e1ea",
-                        "primary": "#00478d",
-                        "outline": "#727783",
-                        "on-tertiary-fixed": "#001c3b",
-                        "surface-bright": "#f8f9fa",
-                        "tertiary": "#244877",
-                        "tertiary-container": "#3e6091",
-                        "on-secondary-container": "#5b646b",
-                        "on-tertiary-container": "#c6dbff",
-                        "on-primary-container": "#c8daff",
-                        "inverse-surface": "#2e3132",
-                        "surface-dim": "#d9dadb",
-                        "surface-container": "#edeeef"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "stack-lg": "32px",
-                        "margin-desktop": "40px",
-                        "stack-sm": "8px",
-                        "margin-mobile": "16px",
-                        "container-max": "1200px",
-                        "stack-md": "16px",
-                        "unit": "8px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "caption": ["Inter"],
-                        "label-md": ["Inter"],
-                        "headline-xl": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"]
-                    },
-                    "fontSize": {
-                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
-                    }
-                }
-            }
-        }
-    </script>
+<html class="light" lang="id" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Hasil Analisa')}"></head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
 <style>
         body { background-color: #f8f9fa; color: #191c1d; font-family: 'Inter', sans-serif; }
         .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.3); }
@@ -108,208 +10,203 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #DEE2E6; border-radius: 10px; }
     </style>
-</head>
-<body class="bg-background">
-<!-- TopAppBar -->
-<header class="bg-surface sticky top-0 z-50 shadow-sm h-16 flex items-center">
-<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto">
-<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_7}}'">MediGuide</a>
-<nav class="hidden md:flex items-center gap-stack-lg">
-<a href= "Edukasi.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer" href="{{DATA:SCREEN:SCREEN_9}}">Edukasi</a>
-<a href= "Chatbot.html" class="text-primary font-bold border-b-2 border-primary cursor-pointer" href="{{DATA:SCREEN:SCREEN_5}}">Cek Gejala</a>
-<a href= "Dashboard.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer" href="{{DATA:SCREEN:SCREEN_6}}">Dashboard</a>
-</nav>
-<div class="flex items-center gap-stack-md">
-<a href="Notifikasi.html" class="material-symbols-outlined text-on-surface-variant cursor-pointer transition-all active:scale-95">notifications</a>
-<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant cursor-pointer" onclick="window.location.href='#'">
-<a href="Akun.html">
-<img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
-</a>
-</div>
-</div>
-</div>
-</header>
-<main class="max-w-container-max mx-auto px-margin-desktop py-stack-lg min-h-[calc(100vh-128px)]">
-<!-- Header Section -->
-<div class="mb-stack-lg">
-<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Hasil Analisis Anda</h1>
-<p class="font-body-md text-body-md text-on-surface-variant">Berdasarkan data yang Anda berikan, berikut adalah tinjauan medis awal dan panduan langkah selanjutnya.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
-<!-- Left Side: AI Analysis (Gemini) -->
-<section class="md:col-span-7 flex flex-col gap-gutter">
-<!-- Risk Level Indicator -->
-<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-level-1 border border-outline-variant flex items-center justify-between">
-<div class="flex items-center gap-stack-md">
-<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
-</div>
-<div>
-<span class="font-caption text-caption text-secondary uppercase tracking-wider">Estimasi Tingkat Risiko</span>
-<div class="font-headline-md text-headline-md text-tertiary">Risiko Sedang</div>
-</div>
-</div>
-<div class="h-2 w-32 bg-surface-variant rounded-full overflow-hidden">
-<div class="h-full bg-tertiary-container w-[60%]"></div>
-</div>
-</div>
-<!-- Analysis Content -->
-<div class="bg-surface-container-lowest p-stack-lg rounded-xl shadow-level-1 border border-outline-variant">
-<div class="flex items-center gap-stack-sm mb-stack-md">
-<span class="material-symbols-outlined text-primary">smart_toy</span>
-<h2 class="font-headline-md text-headline-md text-on-surface">Analisis AI Gemini</h2>
-</div>
-<div class="space-y-stack-md font-body-md text-body-md text-on-surface-variant leading-relaxed">
-<p class="">Berdasarkan keluhan yang Anda sampaikan mengenai nyeri perut bagian kanan atas disertai mual ringan, AI mengidentifikasi adanya kemungkinan peradangan pada area kantung empedu atau gangguan pencernaan fungsional.</p>
-<div class="bg-secondary-container/30 p-stack-md rounded-lg border-l-4 border-primary">
-<p class="font-medium text-on-surface mb-2 italic">"Penting untuk dicatat bahwa analisis ini bukanlah diagnosis medis final. Hindari makanan berlemak tinggi selama 24 jam ke depan."</p>
-</div>
-<h3 class="font-headline-md text-[20px] text-on-surface mt-stack-md">Informasi Medis Pendukung</h3>
-<div class="grid grid-cols-1 gap-stack-sm">
-<div class="flex gap-stack-md items-start">
-<span class="material-symbols-outlined text-tertiary mt-1">verified_user</span>
-<p class=""><strong class="text-on-surface">Sumber: WHO Health Data.</strong> Nyeri perut kanan atas sering dikaitkan dengan pola makan tidak teratur dan stres fisik berlebih.</p>
-</div>
-<div class="flex gap-stack-md items-start">
-<span class="material-symbols-outlined text-tertiary mt-1">verified_user</span>
-<p class=""><strong class="text-on-surface">Sumber: Mayo Clinic Portal.</strong> Gejala mual tanpa demam tinggi biasanya mengindikasikan masalah non-infeksius pada tahap awal.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Action CTA -->
-<div class="flex flex-wrap gap-stack-md">
-<button class="bg-primary text-on-primary px-8 h-12 rounded-lg font-label-md flex items-center gap-2 hover:opacity-90 transition-all active:scale-95">
-<span class="material-symbols-outlined">calendar_month</span>
-                        Jadwalkan Konsultasi Dokter
-                    </button>
-<button class="border border-primary text-primary px-8 h-12 rounded-lg font-label-md flex items-center gap-2 hover:bg-primary-container/10 transition-all active:scale-95">
-<span class="material-symbols-outlined">download</span>
-                        Unduh Hasil PDF
-                    </button>
-</div>
-</section>
-<!-- Right Side: Internal Education (MediGuide) -->
-<aside class="md:col-span-5 flex flex-col gap-gutter">
-<!-- Expert Education Card -->
-<div class="bg-surface-container-lowest rounded-xl shadow-level-1 border border-outline-variant overflow-hidden">
-<div class="relative h-48 w-full bg-secondary-container">
-<img class="w-full h-full object-cover" data-alt="A clean, professional medical setting with a focus on healthy digestion. A bowl of fresh green vegetables and a glass of water are arranged on a minimalist white table under soft, natural sunlight. The atmosphere is calm, clean, and clinical yet welcoming, reflecting a trustworthy healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx9TRF7fAc9-vHooCePa8hRlXQd8fMD1SZGHSAd-wnqqbnKp-wHH2kc7o4xUgYSapu_0ppjyXN8HXFuSRNvlUCIR6LZ5KgwmOq05TZ55JcHV9S4AAkP7gQW1Pi_sCBydCNkGg7VmJm_XG9-nzQjWHNDyjgfeHVAEMT0o6rrZRy1RHQVJMGDm0XQv6cldj0cQwMKINchLl-vx5TP02TP5xRBagNCVkgm1AIRhFiefOMYAJdpzUauErKc8Akbw3G140gnqh6Wda9RAk">
-<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-1 uppercase tracking-widest shadow-md">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-                            Edukasi Terverifikasi
-                        </div>
-</div>
-<div class="p-stack-lg">
-<div class="flex items-center gap-2 mb-2">
-<span class="material-symbols-outlined text-primary text-[18px]">menu_book</span>
-<span class="font-label-md text-primary">Panduan Tim MediGuide</span>
-</div>
-<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md leading-tight">Mengenal Gangguan Pencernaan Bagian Atas</h2>
-<div class="space-y-stack-md font-body-md text-body-md text-on-surface-variant">
-<div>
-<h4 class="font-bold text-on-surface mb-1">Langkah Awal Penanganan:</h4>
-<ul class="list-disc pl-5 space-y-1">
-<li class="">Istirahatkan tubuh dalam posisi duduk tegak.</li>
-<li class="">Kompres hangat pada area perut yang tidak nyaman.</li>
-<li class="">Konsumsi air mineral hangat dalam porsi kecil namun sering.</li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold text-on-surface mb-1">Kapan Harus ke Dokter?</h4>
-<p class="">Segera hubungi layanan kesehatan jika Anda mengalami:</p>
-<div class="mt-2 grid grid-cols-1 gap-2">
-<div class="flex items-center gap-2 p-2 bg-error-container/20 rounded-lg text-on-error-container">
-<span class="material-symbols-outlined text-[18px]">warning</span>
-<span class="text-caption font-medium">Nyeri yang tajam dan tidak kunjung hilang ( &gt; 4 jam)</span>
-</div>
-<div class="flex items-center gap-2 p-2 bg-error-container/20 rounded-lg text-on-error-container">
-<span class="material-symbols-outlined text-[18px]">warning</span>
-<span class="text-caption font-medium">Demam tinggi di atas 38.5°C</span>
-</div>
-<div class="flex items-center gap-2 p-2 bg-error-container/20 rounded-lg text-on-error-container">
-<span class="material-symbols-outlined text-[18px]">warning</span>
-<span class="text-caption font-medium">Kulit atau bagian putih mata menguning</span>
-</div>
-</div>
-</div>
-</div>
-<button class="w-full mt-stack-lg border-t border-outline-variant pt-stack-md text-primary font-bold hover:underline flex items-center justify-center gap-2">
-                            Baca Selengkapnya
-                            <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-<!-- Related Article List -->
-<div class="bg-surface-container-low p-stack-md rounded-xl border border-outline-variant">
-<h3 class="font-label-md text-secondary mb-stack-md uppercase">Artikel Terkait</h3>
-<div class="space-y-stack-sm">
-<div class="flex items-center gap-stack-md p-2 hover:bg-surface-container-highest rounded-lg cursor-pointer transition-colors group">
-<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="A serene image representing hydration and healthy habits. A tall glass of clear water sits on a light-colored wooden table with a soft-focus background of a peaceful home interior. The lighting is airy and bright, emphasizing purity and health in a modern light-mode UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhJg501T8vxQ1UC_bashBYfuhlf3tYWdDvltlLpU8rVfwYZqKBl5hG7wZSdX0Rkt0cZzS6F9gMN86gYsxqGFR7MyjdK1_-owtwnKJk5j3AC5kn5RkuyppB1D4VgwRsNlGQV8Evln4NhS3Yhm_6X3ea3qD4ZWcZCB7hIb03_yCuqGDBR_8K76EYNnGrSucS8MqNJV_5H2yjOJPnJi9izrdKHF5IgI8YR6aDBN9tsVta0qhgvUBUGI1BJ5qDU-jvNNqg9JSjOdcIQiY">
-</div>
-<div class="flex-grow">
-<p class="font-label-md text-on-surface line-clamp-1">Pentingnya Hidrasi untuk Organ Empedu</p>
-<p class="text-caption text-on-surface-variant">3 menit membaca</p>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">chevron_right</span>
-</div>
-<div class="flex items-center gap-stack-md p-2 hover:bg-surface-container-highest rounded-lg cursor-pointer transition-colors group">
-<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="A balanced nutritious meal prepared in a minimalist kitchen setting. A colorful salad with various fresh ingredients like avocado, greens, and seeds is presented in a clean white ceramic bowl. The lighting is warm and natural, creating a trustworthy and health-conscious aesthetic suitable for a wellness platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGJ7bPFj2zjS-ECUYzeH19i-Wfk124KJTjSLU6m3-3urMibymw-k84pHxZwrDKE7xz5KUEK_eLEVvLSLw8NKrAtKDhdSJ4YmGnQ15PbciyLcreWekwIDx0WWjnvkfWsSCnOPA0a6ABIBWRl1SQCuIhvi2kjGMdJ__x1ya52wqilBEbZbBuYf6deCJ5mHiRxkAPLLW8LE91MK1nr2JtkzHUFbKmEwp_dyLFI2ePTiqenrUFqA9eNCmnTUyGlDmS95Zrz_qWLY_4818">
-</div>
-<div class="flex-grow">
-<p class="font-label-md text-on-surface line-clamp-1">Diet Rendah Lemak: Panduan 7 Hari</p>
-<p class="text-caption text-on-surface-variant">5 menit membaca</p>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">chevron_right</span>
-</div>
-</div>
-</div>
-</aside>
+
+<header th:replace="~{fragments :: navbar('gejala')}"></header>
+
+<!-- Halaman Hasil Analisa — semua data dari backend via Thymeleaf -->
+<main class="py-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+
+  <!-- Breadcrumb -->
+  <nav class="flex items-center gap-2 text-caption text-on-surface-variant mb-stack-lg">
+    <a href="/dashboard" class="hover:text-primary">Dashboard</a>
+    <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+    <a href="/chat/start" class="hover:text-primary">Cek Gejala</a>
+    <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+    <span class="text-primary font-medium">Hasil Analisa</span>
+  </nav>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <!-- Kolom Kiri: Hasil Utama -->
+    <div class="lg:col-span-8 space-y-gutter">
+
+      <!-- Card: Tingkat Risiko (dari database) -->
+      <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+        <div class="p-stack-lg">
+          <div class="flex items-center justify-between mb-stack-md">
+            <h2 class="font-headline-md text-headline-md text-on-surface">Hasil Analisa Gejala</h2>
+            <!-- Badge tingkat risiko dari database (bukan AI) -->
+            <span th:switch="${result.tingkatRisiko}">
+              <span th:case="'ringan'"
+                class="px-3 py-1 rounded-full text-label-md font-bold bg-green-100 text-green-800">
+                ✓ Risiko Ringan
+              </span>
+              <span th:case="'sedang'"
+                class="px-3 py-1 rounded-full text-label-md font-bold bg-yellow-100 text-yellow-800">
+                ⚠ Risiko Sedang
+              </span>
+              <span th:case="'berat'"
+                class="px-3 py-1 rounded-full text-label-md font-bold bg-red-100 text-red-800">
+                ⛔ Perlu Perhatian Medis
+              </span>
+              <span th:case="*"
+                class="px-3 py-1 rounded-full text-label-md font-bold bg-surface-container text-on-surface-variant">
+                Dalam Analisa
+              </span>
+            </span>
+          </div>
+
+          <!-- Ringkasan gejala dari Gemini -->
+          <div class="mb-stack-md">
+            <h3 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-2">Ringkasan Gejala</h3>
+            <p class="text-body-md text-on-surface" th:text="${result.ringkasanGejala}">
+              Memuat ringkasan...
+            </p>
+          </div>
+
+          <!-- Kemungkinan diagnosis dari Gemini -->
+          <div class="bg-secondary-container/30 p-stack-md rounded-lg border-l-4 border-primary mb-stack-md">
+            <h3 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-2">Analisa AI</h3>
+            <p class="text-body-md text-on-surface" th:text="${result.kemungkinanDiagnosis}">
+              Memuat analisa...
+            </p>
+          </div>
+
+          <!-- Saran tindakan dari Gemini -->
+          <div class="bg-primary-container/10 p-stack-md rounded-lg border border-primary/20">
+            <div class="flex items-start gap-stack-sm">
+              <span class="material-symbols-outlined text-primary mt-1">medical_services</span>
+              <div>
+                <h3 class="font-label-md text-label-md text-primary font-bold mb-1">Saran Tindakan</h3>
+                <p class="text-body-md text-on-surface" th:text="${result.saranTindakan}">
+                  Memuat saran...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Data Penyakit dari Database Kalian -->
+      <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden"
+           th:if="${result.penyakit != null}">
+        <div class="p-stack-lg">
+          <div class="flex items-center gap-stack-sm mb-stack-md">
+            <span class="material-symbols-outlined text-primary">local_hospital</span>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Informasi Penyakit</h2>
+            <span class="px-2 py-0.5 rounded-full text-caption bg-primary-container/10 text-primary border border-primary/20"
+                  th:text="${result.penyakit.kategori}">Kategori</span>
+          </div>
+
+          <!-- Nama penyakit -->
+          <div class="mb-stack-md">
+            <h3 class="font-headline-md text-[18px] text-on-surface" th:text="${result.penyakit.namaPenyakit}">Nama Penyakit</h3>
+            <p class="text-caption text-secondary italic" th:text="${result.penyakit.medicalTerm}">Medical Term</p>
+          </div>
+
+          <!-- SOLUSI EDUKASI dari database kalian (bukan AI!) -->
+          <div class="bg-surface-container p-stack-md rounded-lg mb-stack-md">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-tertiary text-[18px]">tips_and_updates</span>
+              <h3 class="font-label-md text-label-md text-on-surface font-bold">Solusi &amp; Edukasi Penanganan</h3>
+            </div>
+            <p class="text-body-md text-on-surface" th:text="${result.penyakit.solusiEdukasi}">
+              Memuat solusi...
+            </p>
+          </div>
+
+          <!-- Link referensi dari database kalian -->
+          <h3 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-stack-sm">Referensi Medis Terpercaya</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-stack-sm">
+            <a th:href="${result.penyakit.urlNejm}" target="_blank" th:if="${result.penyakit.urlNejm != null}"
+               class="flex items-center gap-2 p-stack-md rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-container/5 transition-all group">
+              <span class="material-symbols-outlined text-primary text-[18px]">article</span>
+              <div>
+                <p class="font-label-md text-label-md text-on-surface group-hover:text-primary">NEJM</p>
+                <p class="text-caption text-secondary">Jurnal Internasional</p>
+              </div>
+            </a>
+            <a th:href="${result.penyakit.urlMayoClinic}" target="_blank" th:if="${result.penyakit.urlMayoClinic != null}"
+               class="flex items-center gap-2 p-stack-md rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-container/5 transition-all group">
+              <span class="material-symbols-outlined text-primary text-[18px]">health_and_safety</span>
+              <div>
+                <p class="font-label-md text-label-md text-on-surface group-hover:text-primary">Mayo Clinic</p>
+                <p class="text-caption text-secondary">Artikel Medis</p>
+              </div>
+            </a>
+            <a th:href="${result.penyakit.urlPubmed}" target="_blank" th:if="${result.penyakit.urlPubmed != null}"
+               class="flex items-center gap-2 p-stack-md rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-container/5 transition-all group">
+              <span class="material-symbols-outlined text-primary text-[18px]">science</span>
+              <div>
+                <p class="font-label-md text-label-md text-on-surface group-hover:text-primary">PubMed</p>
+                <p class="text-caption text-secondary">Paper Ilmiah</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-stack-md">
+        <button onclick="window.print()"
+          class="bg-primary text-on-primary px-8 h-12 rounded-lg font-label-md flex items-center gap-2 hover:opacity-90 transition-all active:scale-95">
+          <span class="material-symbols-outlined text-[18px]">print</span> Simpan Hasil
+        </button>
+        <a href="/chat/start"
+          class="border border-primary text-primary px-8 h-12 rounded-lg font-label-md flex items-center gap-2 hover:bg-primary-container/10 transition-all active:scale-95">
+          <span class="material-symbols-outlined text-[18px]">refresh</span> Cek Gejala Baru
+        </a>
+      </div>
+    </div>
+
+    <!-- Kolom Kanan -->
+    <div class="lg:col-span-4 space-y-gutter">
+      <!-- Disclaimer -->
+      <div class="bg-error-container/50 p-stack-lg rounded-xl border border-error/20">
+        <div class="flex items-start gap-stack-sm">
+          <span class="material-symbols-outlined text-error mt-0.5">warning</span>
+          <div>
+            <h4 class="font-label-md text-label-md text-on-error-container font-bold mb-1">Perhatian Penting</h4>
+            <p class="text-caption text-on-error-container" th:text="${result.disclaimer}">
+              Hasil ini bukan diagnosis medis resmi.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info penyakit singkat jika ada -->
+      <div class="bg-surface-container-lowest p-stack-lg rounded-xl border border-outline-variant/30"
+           th:if="${result.penyakit != null}">
+        <h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-stack-md">Tentang Penyakit Ini</h4>
+        <dl class="space-y-stack-sm">
+          <div>
+            <dt class="text-caption text-on-surface-variant">Nama Medis</dt>
+            <dd class="font-label-md text-on-surface" th:text="${result.penyakit.medicalTerm}">-</dd>
+          </div>
+          <div>
+            <dt class="text-caption text-on-surface-variant">Kategori</dt>
+            <dd class="font-label-md text-on-surface" th:text="${result.penyakit.kategori}">-</dd>
+          </div>
+          <div>
+            <dt class="text-caption text-on-surface-variant">Tingkat Risiko</dt>
+            <dd class="font-label-md text-on-surface capitalize" th:text="${result.penyakit.tingkatRisiko}">-</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Darurat -->
+      <div class="bg-error-container p-stack-lg rounded-xl border border-error/10">
+        <h4 class="font-label-md text-label-md text-on-error-container font-bold mb-stack-sm flex items-center gap-unit">
+          <span class="material-symbols-outlined text-error">emergency</span> DARURAT?
+        </h4>
+        <p class="text-label-md text-on-error-container mb-stack-md">Jika kondisi kritis, segera hubungi nomor darurat.</p>
+        <a href="tel:119" class="block w-full text-center bg-error text-on-error py-3 rounded-lg font-bold text-headline-md">119</a>
+      </div>
+    </div>
+  </div>
 </div>
 </main>
-<!-- Footer -->
-<footer class="bg-surface-container-low border-t border-outline-variant">
-<div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
-<div class="font-headline-md text-headline-md font-bold text-primary">MediGuide</div>
-<div class="flex flex-wrap gap-x-stack-lg gap-y-stack-sm">
-<a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
-</div>
-</div>
-<div class="pt-stack-md border-t border-outline-variant/30">
-<p class="font-body-md text-body-md text-secondary">© 2024 MediGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
-</div>
-</div>
-</footer>
-<script>
-        // Micro-interaction for hover effects on cards
-        document.querySelectorAll('.shadow-level-1').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-2px)';
-                card.style.transition = 'all 0.3s ease';
-                card.style.boxShadow = '0px 8px 30px rgba(0,0,0,0.08)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0px)';
-                card.style.boxShadow = '0px 4px 20px rgba(0,0,0,0.04)';
-            });
-        });
 
-        // Simple smooth scroll for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const text = this.innerText;
-                console.log('Navigating to:', text);
-                // logic for actual navigation would go here
-            });
-        });
-    </script>
-
+<footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>

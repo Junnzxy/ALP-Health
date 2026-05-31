@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="light" lang="id" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Daftar')}"></head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex items-center justify-center">
+<script id="tailwind-config">
+  tailwind.config = { darkMode:"class", theme:{ extend:{ colors:{"primary":"#00478d","on-primary":"#ffffff","surface":"#f8f9fa","on-surface":"#191c1d","surface-container-lowest":"#ffffff","outline-variant":"#c2c6d4","secondary":"#575f67","on-surface-variant":"#424752","error":"#ba1a1a","on-error":"#ffffff"}, spacing:{"stack-md":"16px","stack-lg":"32px","gutter":"24px","unit":"8px"}, fontFamily:{"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Inter"]} } } }
+</script>
+<div class="w-full max-w-md mx-auto p-gutter">
+  <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-stack-lg">
+    <div class="text-center mb-stack-lg">
+      <h1 class="font-headline-md text-headline-md font-bold text-primary">MediGuide</h1>
+      <p class="text-secondary text-body-md mt-2">Buat akun baru</p>
+    </div>
+    <div id="error-msg" class="hidden bg-error/10 border border-error/20 text-error rounded-lg p-stack-md mb-stack-md text-label-md"></div>
+    <div id="success-msg" class="hidden bg-green-50 border border-green-200 text-green-800 rounded-lg p-stack-md mb-stack-md text-label-md"></div>
+    <div class="space-y-stack-md">
+      <div>
+        <label class="text-label-md text-on-surface-variant block mb-1">Nama Lengkap</label>
+        <input type="text" id="reg-name" required
+          class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary outline-none transition-all"
+          placeholder="Nama Anda">
+      </div>
+      <div>
+        <label class="text-label-md text-on-surface-variant block mb-1">Email</label>
+        <input type="email" id="reg-email" required
+          class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary outline-none transition-all"
+          placeholder="contoh@email.com">
+      </div>
+      <div>
+        <label class="text-label-md text-on-surface-variant block mb-1">Password</label>
+        <input type="password" id="reg-pass" required
+          class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary outline-none transition-all"
+          placeholder="Minimal 6 karakter">
+      </div>
+      <button onclick="doRegister()"
+        class="w-full h-12 bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 active:scale-95 transition-all">
+        Daftar
+      </button>
+    </div>
+    <p class="text-center text-label-md text-on-surface-variant mt-stack-md">
+      Sudah punya akun? <a href="/login" class="text-primary font-bold hover:underline">Masuk</a>
+    </p>
+  </div>
+</div>
+<script>
+async function doRegister() {
+  const name = document.getElementById('reg-name').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const password = document.getElementById('reg-pass').value;
+  const errEl = document.getElementById('error-msg');
+  const okEl  = document.getElementById('success-msg');
+  errEl.classList.add('hidden'); okEl.classList.add('hidden');
+
+  if (!name || !email || !password) {
+    errEl.textContent = 'Semua field wajib diisi.';
+    errEl.classList.remove('hidden'); return;
+  }
+
+  const res = await fetch('/api/auth/register', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ name, email, password })
+  });
+  const data = await res.json();
+
+  if (res.ok) {
+    okEl.textContent = 'Registrasi berhasil! Mengalihkan ke login...';
+    okEl.classList.remove('hidden');
+    setTimeout(() => window.location.href = '/login', 1500);
+  } else {
+    errEl.textContent = data.error || 'Registrasi gagal.';
+    errEl.classList.remove('hidden');
+  }
+}
+</script>
+</body>
+</html>
