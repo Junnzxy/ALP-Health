@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 rootProject.name = 'health'
+=======
+pluginManagement {
+	repositories {
+		maven { url = 'https://repo.spring.io/snapshot' }
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'tugas'
+>>>>>>> 58e8315 (isi)
