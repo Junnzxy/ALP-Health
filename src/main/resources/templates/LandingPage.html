@@ -104,17 +104,14 @@
         },
       }
     </script>
-<style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #191C1D; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .hero-gradient { background: linear-gradient(90deg, rgba(248,249,250,1) 30%, rgba(248,249,250,0.8) 50%, rgba(248,249,250,0) 100%); }
-    </style>
+
+<link rel="stylesheet" th:href="@{/css/common.css}">
 </head>
 <body class="antialiased overflow-x-hidden">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-surface shadow-sm h-16">
     <nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
-        <div href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">MediGuide</div>
+        <div href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">HealthGuide</div>
         <div class="hidden md:flex gap-gutter items-center">
             <a href="Edukasi.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer active:scale-95" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
             <a href="Chatbot.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer active:scale-95" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
@@ -153,7 +150,7 @@
                         Kenali Gejala Lebih Awal, Jaga Kesehatan Lebih Baik.
             </h1>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">
-                        MediGuide memberikan panduan kesehatan yang valid, berbasis bukti medis, untuk membantu Anda mengambil keputusan yang tepat bagi kesehatan keluarga.
+                        HealthGuide memberikan panduan kesehatan yang valid, berbasis bukti medis, untuk membantu Anda mengambil keputusan yang tepat bagi kesehatan keluarga.
             </p>
         <div class="flex flex-col sm:flex-row gap-stack-md">
             <button class="h-12 px-stack-lg bg-primary text-on-primary font-semibold rounded-xl hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2" onclick="location.href='{{DATA:SCREEN:SCREEN_8}}'">
@@ -260,7 +257,7 @@
 <img class="w-10 h-10 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVhYdpqQn1Evomz3wk78YRmL-yy9FGv9NhTK7hIjS7Bt5A-IP1ujKybwEch4wzW8q3QyXDUjWt2K7x4DRw98QANCCfPfTHOkFt_JpNbPkG2FinvaUEUSuaPpkPWVuxySlTwVY6F-R8hFlfJ-hpG1VXRAC5MN5-cYS2PksI6c6RPOrakV166rfo-EFydvRpvhop8u5ZmvT-3KYFZyxnCVcJ4S7TCpR3bdr-E6lfo74xjxEYgQVi-N0aFcrXsSZz6-jFJgVTBaIPTh0">
 </div>
 <p class="font-body-md text-on-secondary-container">
-<span class="font-bold text-primary">500,000+</span> Pengguna telah mempercayakan kesehatan mereka kepada MediGuide.
+<span class="font-bold text-primary">500,000+</span> Pengguna telah mempercayakan kesehatan mereka kepada HealthGuide.
                         </p>
 </div>
 <button class="text-primary font-bold hover:underline flex items-center gap-1">
@@ -315,7 +312,7 @@
 <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-stack-md relative z-10">Mulai Perjalanan Sehat Anda Sekarang.</h2>
 <p class="font-body-lg mb-stack-lg opacity-90 max-w-2xl mx-auto relative z-10">
-                    Bergabunglah dengan komunitas MediGuide untuk mendapatkan update kesehatan mingguan yang dipersonalisasi untuk Anda.
+                    Bergabunglah dengan komunitas HealthGuide untuk mendapatkan update kesehatan mingguan yang dipersonalisasi untuk Anda.
                 </p>
 <div class="flex flex-col sm:flex-row gap-stack-sm justify-center relative z-10">
 <input class="h-14 px-stack-lg rounded-xl text-on-surface min-w-[300px] border-none focus:ring-4 focus:ring-white/20" placeholder="Alamat email Anda" type="email">
@@ -330,7 +327,7 @@
 <footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
-<div class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">MediGuide</div>
+<div class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">HealthGuide</div>
 <div class="flex flex-wrap gap-stack-md">
 <a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
 <a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
@@ -339,7 +336,7 @@
 </div>
 </div>
 <div class="flex flex-col md:flex-row justify-between pt-stack-md border-t border-outline-variant/30 text-on-surface-variant font-body-md">
-<p class="">© 2024 MediGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
+<p class="">© 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
 <div class="flex gap-4 mt-stack-sm md:mt-0">
 <span class="material-symbols-outlined cursor-pointer hover:text-primary">social_leaderboard</span>
 <span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
@@ -348,31 +345,7 @@
 </div>
 </div>
 </footer>
-<script>
-        // Simple scroll interaction for header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 20) {
-                header.classList.add('shadow-md');
-                header.classList.remove('shadow-sm');
-            } else {
-                header.classList.add('shadow-sm');
-                header.classList.remove('shadow-md');
-            }
-        });
 
-        // Hover effect for feature cards
-        const cards = document.querySelectorAll('.group');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-4px)';
-                card.style.transition = 'all 0.3s ease';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
-
+<script th:src="@{/js/landingpage.js}"></script>
 </body>
 </html>

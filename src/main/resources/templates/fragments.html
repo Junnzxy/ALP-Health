@@ -9,10 +9,11 @@
 <head th:fragment="head(title)">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title th:text="${title} + ' - MediGuide'">MediGuide</title>
+    <title th:text="${title} + ' - HealthGuide'">HealthGuide</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -101,7 +102,7 @@
      ============================================================ -->
 <header th:fragment="navbar(activeNav)" class="bg-surface shadow-sm sticky top-0 z-50">
     <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
-        <a href="/dashboard" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">MediGuide</a>
+        <a href="/dashboard" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">HealthGuide</a>
         <nav class="hidden md:flex gap-gutter">
             <a href="/edukasi"
                th:classappend="${activeNav == 'edukasi'} ? 'text-primary font-bold border-b-2 border-primary' : 'text-on-surface-variant font-medium hover:text-primary transition-colors'"
@@ -140,7 +141,7 @@
 <footer th:fragment="footer" class="bg-surface-container-low border-t border-outline-variant mt-auto">
     <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-gutter">
-            <a href="/dashboard" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">MediGuide</a>
+            <a href="/dashboard" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">HealthGuide</a>
             <div class="flex flex-wrap gap-gutter">
                 <a class="text-on-surface-variant hover:underline hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
                 <a class="text-on-surface-variant hover:underline hover:text-primary transition-colors" href="#">Syarat &amp; Ketentuan</a>
@@ -149,7 +150,7 @@
             </div>
         </div>
         <p class="font-body-md text-body-md text-on-surface-variant mt-stack-md">
-            © 2024 MediGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
+            © 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
         </p>
     </div>
 </footer>

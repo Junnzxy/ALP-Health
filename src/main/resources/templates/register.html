@@ -5,10 +5,12 @@
 <script id="tailwind-config">
   tailwind.config = { darkMode:"class", theme:{ extend:{ colors:{"primary":"#00478d","on-primary":"#ffffff","surface":"#f8f9fa","on-surface":"#191c1d","surface-container-lowest":"#ffffff","outline-variant":"#c2c6d4","secondary":"#575f67","on-surface-variant":"#424752","error":"#ba1a1a","on-error":"#ffffff"}, spacing:{"stack-md":"16px","stack-lg":"32px","gutter":"24px","unit":"8px"}, fontFamily:{"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Inter"]} } } }
 </script>
+
+<link rel="stylesheet" th:href="@{/css/common.css}">
 <div class="w-full max-w-md mx-auto p-gutter">
   <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-stack-lg">
     <div class="text-center mb-stack-lg">
-      <h1 class="font-headline-md text-headline-md font-bold text-primary">MediGuide</h1>
+      <h1 class="font-headline-md text-headline-md font-bold text-primary">HealthGuide</h1>
       <p class="text-secondary text-body-md mt-2">Buat akun baru</p>
     </div>
     <div id="error-msg" class="hidden bg-error/10 border border-error/20 text-error rounded-lg p-stack-md mb-stack-md text-label-md"></div>

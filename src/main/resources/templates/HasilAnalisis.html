@@ -2,20 +2,128 @@
 <html class="light" lang="id" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head('Hasil Analisa')}"></head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
-<style>
-        body { background-color: #f8f9fa; color: #191c1d; font-family: 'Inter', sans-serif; }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.3); }
-        .shadow-level-1 { box-shadow: 0px 4px 20px rgba(0,0,0,0.04); }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #DEE2E6; border-radius: 10px; }
-    </style>
 
-<header th:replace="~{fragments :: navbar('gejala')}"></header>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#575f67",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe4ed",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-tint": "#005db6",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c2c6d4",
+                        "surface-container-high": "#e7e8e9",
+                        "on-surface-variant": "#424752",
+                        "background": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#3f484f",
+                        "primary-container": "#005eb8",
+                        "on-secondary-fixed": "#141d23",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d5e3ff",
+                        "secondary-fixed-dim": "#bfc8d0",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed-variant": "#00468c",
+                        "tertiary-fixed-dim": "#a6c8ff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "error": "#ba1a1a",
+                        "on-background": "#191c1d",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#234776",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f8f9fa",
+                        "secondary-container": "#d8e1ea",
+                        "primary": "#00478d",
+                        "outline": "#727783",
+                        "on-tertiary-fixed": "#001c3b",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary": "#244877",
+                        "tertiary-container": "#3e6091",
+                        "on-secondary-container": "#5b646b",
+                        "on-tertiary-container": "#c6dbff",
+                        "on-primary-container": "#c8daff",
+                        "inverse-surface": "#2e3132",
+                        "surface-dim": "#d9dadb",
+                        "surface-container": "#edeeef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "margin-desktop": "40px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "stack-md": "16px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<link rel="stylesheet" th:href="@{/css/common.css}">
+<header class="bg-surface dark:bg-on-surface-fixed sticky top-0 z-50 shadow-sm border-b border-outline-variant/10">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-stack-md">
+<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">HealthGuide</a>
+<nav class="hidden md:flex items-center gap-6 ml-8">
+<a href="Edukasi.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
+<a href="Chatbot.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
+<a href="Dashboard.html" class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary cursor-pointer transition-all active:scale-95" href="{{DATA:SCREEN:SCREEN_16}}">Dashboard</a>
 
-<!-- Halaman Hasil Analisa — semua data dari backend via Thymeleaf -->
-<main class="py-stack-lg">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="pl-10 pr-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none text-body-md w-64 transition-all" placeholder="Cari penyakit..." type="text" onkeypress="if(event.key === 'Enter') alert('Mencari ' + this.value + '...')">
+<span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant">search</span>
+</div>
+<a href="Notifikasi.html" class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-variant rounded-full cursor-pointer transition-all active:scale-95">notifications</a>
+<a href="Akun.html">
+<img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-stack-lg">
 
   <!-- Breadcrumb -->
   <nav class="flex items-center gap-2 text-caption text-on-surface-variant mb-stack-lg">
@@ -207,6 +315,25 @@
 </div>
 </main>
 
-<footer th:replace="~{fragments :: footer}"></footer>
+<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant">
+<div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
+<a href="{{DATA:SCREEN:SCREEN_11}}" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">HealthGuide</a>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
+</div>
+</div>
+<div class="pt-8 mt-8 border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed text-center md:text-left">
+                    © 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
+                </p>
+</div>
+</div>
+</footer>
+
+<script th:src="@{/js/hasilanalisis.js}"></script>
 </body>
 </html>
