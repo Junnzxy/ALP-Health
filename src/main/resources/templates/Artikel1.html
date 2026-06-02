@@ -107,7 +107,7 @@
 <link rel="stylesheet" th:href="@{/css/common.css}">
 <header class="bg-surface dark:bg-on-surface-fixed docked full-width top-0 shadow-sm sticky z-50">
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
-<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">MediGuide</a>
+<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary cursor-pointer">HealthGuide</a>
 <nav class="hidden md:flex items-center gap-stack-lg">
 <a href="Edukasi.html" class="text-primary font-bold border-b-2 border-primary cursor-pointer transition-all active:scale-95">Edukasi</a>
 <a href="Chatbot.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors cursor-pointer active:scale-95">Cek Gejala</a>
@@ -230,20 +230,25 @@
 </section>
 </article>
 </main>
-<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant mt-stack-lg">
+<footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
-<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer" onclick="location.href='{{DATA:SCREEN:SCREEN_10}}'">HealthGuide</span>
+<div class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">HealthGuide</div>
 <div class="flex flex-wrap gap-stack-md">
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-bold" href="#">Sumber Terpercaya</a>
 </div>
 </div>
-<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed text-sm opacity-80">
-                © 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
-            </p>
+<div class="flex flex-col md:flex-row justify-between pt-stack-md border-t border-outline-variant/30 text-on-surface-variant font-body-md">
+<p class="">© 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
+<div class="flex gap-4 mt-stack-sm md:mt-0">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">mail</span>
+</div>
+</div>
 </div>
 </footer>
 

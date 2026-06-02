@@ -108,7 +108,6 @@
 
 <link rel="stylesheet" th:href="@{/css/common.css}">
 
-
 <header class="bg-surface dark:bg-on-surface-fixed docked full-width top-0 shadow-sm sticky z-50">
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
 <div class="flex items-center gap-stack-lg">
@@ -176,7 +175,7 @@
 </div>
 <div class="text-center md:text-left">
 <h3 class="font-headline-sm text-on-surface">Dr. Andi Arjuna</h3>
-<p class="font-body-md text-on-surface-variant">Bergabung sejak Januari 2024</p>
+<p class="font-body-md text-on-surface-variant">Bergabung sejak Januari 2026</p>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
@@ -276,28 +275,76 @@
 <h3 class="font-headline-sm text-error">Hapus Akun</h3>
 <p class="font-body-md text-on-error-container/70">Tindakan ini permanen dan tidak dapat dibatalkan.</p>
 </div>
-<button class="px-stack-lg py-2 border-2 border-error text-error font-label-md rounded-full hover:bg-error hover:text-white transition-all active:scale-95" onclick="if(confirm('Apakah Anda yakin ingin menghapus akun secara permanen? Tindakan ini tidak dapat dibatalkan.')) { alert('Akun sedang diproses untuk penghapusan.'); }">Hapus Permanen</button>
+<a href ="Register.html" class="px-stack-lg py-2 border-2 border-error text-error font-label-md rounded-full hover:bg-error hover:text-white transition-all active:scale-95" onclick="if(confirm('Apakah Anda yakin ingin menghapus akun secara permanen? Tindakan ini tidak dapat dibatalkan.')) { alert('Akun sedang diproses untuk penghapusan.'); }">Hapus Permanen</a>
 </div>
 </div>
 </div>
 </main>
-<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant mt-stack-lg">
+<footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
-<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer" onclick="location.href='{{DATA:SCREEN:SCREEN_10}}'">HealthGuide</span>
+<div class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">HealthGuide</div>
 <div class="flex flex-wrap gap-stack-md">
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-body-md text-body-md hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-bold" href="#">Sumber Terpercaya</a>
 </div>
 </div>
-<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed text-sm opacity-80">
-                © 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
-            </p>
+<div class="flex flex-col md:flex-row justify-between pt-stack-md border-t border-outline-variant/30 text-on-surface-variant font-body-md">
+<p class="">© 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
+<div class="flex gap-4 mt-stack-sm md:mt-0">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">mail</span>
+</div>
+</div>
 </div>
 </footer>
 
-<script th:src="@{/js/akun.js}"></script>
+<script>
+        /* akun.js - Akun.html */
+
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - 80,
+            behavior: 'smooth'
+        });
+
+        // Update active state in sidebar
+        const buttons = document.querySelectorAll('.lg\\:col-span-3 button');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+            btn.classList.add('text-on-surface-variant');
+        });
+        event.currentTarget.classList.add('bg-primary-container', 'text-on-primary-container');
+        event.currentTarget.classList.remove('text-on-surface-variant');
+    }
+}
+
+// Dark mode toggle
+const darkToggle = document.getElementById('darkToggle');
+if (darkToggle) {
+    darkToggle.addEventListener('change', () => {
+        if (darkToggle.checked) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    });
+}
+
+// Simple input focus effects
+document.querySelectorAll('input, select').forEach(input => {
+    input.addEventListener('focus', () => {
+        input.parentElement.classList.add('scale-[1.01]');
+    });
+    input.addEventListener('blur', () => {
+        input.parentElement.classList.remove('scale-[1.01]');
+    });
+});
+</script>
 </body>
 </html>

@@ -319,21 +319,24 @@
 </section>
 </div>
 </main>
-<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant">
+<footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
-<a href="{{DATA:SCREEN:SCREEN_11}}" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">HealthGuide</a>
-<div class="flex flex-wrap gap-x-8 gap-y-4">
-<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
+<div class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">HealthGuide</div>
+<div class="flex flex-wrap gap-stack-md">
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-bold" href="#">Sumber Terpercaya</a>
 </div>
 </div>
-<div class="pt-8 mt-8 border-t border-outline-variant/20">
-<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed text-center md:text-left">
-                    © 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
-                </p>
+<div class="flex flex-col md:flex-row justify-between pt-stack-md border-t border-outline-variant/30 text-on-surface-variant font-body-md">
+<p class="">© 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
+<div class="flex gap-4 mt-stack-sm md:mt-0">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">mail</span>
+</div>
 </div>
 </div>
 </footer>

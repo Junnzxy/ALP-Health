@@ -177,10 +177,9 @@
 <div class="flex-grow relative">
 <input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-gutter py-3 font-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline hover:border-primary cursor-pointer" id="chat-input" placeholder="Ketikkan gejala Anda di sini..." type="text">
 </div>
-<button class="bg-primary text-on-primary w-12 h-12 rounded-xl flex items-center justify-center shadow-sm hover:opacity-90 active:scale-95 transition-all cursor-pointer" type="submit">
-<span class="material-symbols-outlined">send</span>
-
-</button>
+<a href="HasilAnalisis.html" class="bg-primary text-on-primary w-12 h-12 rounded-xl flex items-center justify-center shadow-sm hover:opacity-90 active:scale-95 transition-all cursor-pointer" type="submit">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</a>
 
 </form>
 <p class="text-[11px] text-secondary mt-stack-sm text-center">Analisis AI bukan diagnosa medis resmi. Konsultasikan dengan dokter untuk hasil pasti.</p>
@@ -208,7 +207,7 @@
                 </h4>
 <p class="text-label-md text-on-error-container mb-stack-md">Jika Anda merasa dalam kondisi kritis, segera hubungi nomor darurat.</p>
 <a class="block w-full text-center bg-error text-on-error py-3 rounded-lg font-bold text-headline-md transition-all active:scale-95" href="#">
-                    112
+                    119
                 </a>
 </div>
 <!-- Related Content -->
@@ -239,23 +238,82 @@
 </div>
 </main>
 
-<footer class="bg-surface-container-low dark:bg-surface-dim border-t border-outline-variant mt-auto">
+<footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-gutter">
-<a href="{{DATA:SCREEN:SCREEN_10}}" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">HealthGuide</a>
-<div class="flex flex-wrap gap-gutter">
-<a class="text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
-<a class="text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
-<a class="text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
-<a class="text-on-surface-variant dark:text-outline-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Sumber Terpercaya</a>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
+<div class="font-headline-md text-headline-md font-bold text-primary cursor-pointer active:scale-95" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">HealthGuide</div>
+<div class="flex flex-wrap gap-stack-md">
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200" href="#">Hubungi Kami</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-bold" href="#">Sumber Terpercaya</a>
 </div>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mt-stack-md">
-            © 2026 healthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.
-        </p>
+<div class="flex flex-col md:flex-row justify-between pt-stack-md border-t border-outline-variant/30 text-on-surface-variant font-body-md">
+<p class="">© 2026 HealthGuide. Informasi medis ini hanya untuk tujuan edukasi dan bukan pengganti saran medis profesional.</p>
+<div class="flex gap-4 mt-stack-sm md:mt-0">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">mail</span>
+</div>
+</div>
 </div>
 </footer>
 
-<script th:src="@{/js/chatbot.js}"></script>
+<script>
+        function sendMessage(text) {
+        const input = document.getElementById('chat-input');
+        const message = text || input.value.trim();
+        if (!message) return;
+
+        const chatContainer = document.getElementById('chat-container');
+        
+        // User Message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'flex justify-end gap-stack-sm ml-auto max-w-[85%]';
+        userMsg.innerHTML = `
+            <div class="bg-primary text-on-primary p-stack-md rounded-2xl rounded-tr-none">
+                <p class="text-body-md">${message}</p>
+                <span class="text-[10px] text-on-primary/70 mt-1 block text-right">Sekarang</span>
+            </div>
+        `;
+        chatContainer.appendChild(userMsg);
+        
+        if (!text) input.value = '';
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // Simulate Bot Response & Progress
+        setTimeout(() => {
+            const botMsg = document.createElement('div');
+            botMsg.className = 'flex gap-stack-sm max-w-[85%] animate-pulse';
+            botMsg.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-on-primary">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="smart_toy">smart_toy</span>
+                </div>
+                <div class="bg-surface-container p-stack-md rounded-2xl rounded-tl-none">
+                    <p class="text-body-md text-on-surface">Menganalisis...</p>
+                </div>
+            `;
+            chatContainer.appendChild(botMsg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            setTimeout(() => {
+                botMsg.classList.remove('animate-pulse');
+                botMsg.querySelector('p').innerText = "Sudah berapa lama ini berlangsung?";
+                
+                // Update Progress UI
+                const progressBar = document.getElementById('progress-bar');
+                const stepLabel = document.getElementById('step-label');
+                const progressPercent = document.getElementById('progress-percent');
+                
+                progressBar.style.width = '66%';
+                stepLabel.innerText = 'Langkah 2 dari 3';
+                progressPercent.innerText = '66%';
+                
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1000);
+        }, 500);
+    }
+</script>
 </body>
 </html>
