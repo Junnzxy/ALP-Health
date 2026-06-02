@@ -1,34 +1,23 @@
-const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-        const passwordIcon = document.getElementById('passwordIcon');
+/* hasil-analisis.js - HasilAnalisis.html */
 
-        togglePassword.addEventListener('click', function () {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            
-            // Toggle the icon and style
-            if (type === 'text') {
-                passwordIcon.textContent = 'visibility_off';
-                this.classList.add('text-primary');
-                this.classList.remove('text-outline');
-            } else {
-                passwordIcon.textContent = 'visibility';
-                this.classList.remove('text-primary');
-                this.classList.add('text-outline');
-            }
-        });
+// Hover lift for shadow cards
+document.querySelectorAll('.shadow-level-1').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-2px)';
+        card.style.transition = 'all 0.3s ease';
+        card.style.boxShadow = '0px 8px 30px rgba(0,0,0,0.08)';
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0px)';
+        card.style.boxShadow = '0px 4px 20px rgba(0,0,0,0.04)';
+    });
+});
 
-        // Ripple Effect
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                let ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                this.appendChild(ripple);
-                let d = Math.max(this.clientWidth, this.clientHeight);
-                ripple.style.width = ripple.style.height = d + 'px';
-                let rect = this.getBoundingClientRect();
-                ripple.style.left = e.clientX - rect.left - d/2 + 'px';
-                ripple.style.top = e.clientY - rect.top - d/2 + 'px';
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
+// Smooth scroll for nav links (prevent default for demo)
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const text = this.innerText;
+        console.log('Navigating to:', text);
+    });
+});

@@ -1,299 +1,191 @@
 <!DOCTYPE html>
-<html class="light" lang="id" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments :: head('Notifikasi')}"></head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
 
-            <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Masuk - HealthGuide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-tint": "#005db6",
-                        "on-primary-fixed-variant": "#00468c",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed-dim": "#a6c8ff",
-                        "secondary": "#575f67",
-                        "on-secondary-fixed": "#141d23",
-                        "background": "#f8f9fa",
-                        "secondary-fixed-dim": "#bfc8d0",
-                        "on-error": "#ffffff",
-                        "inverse-primary": "#a9c7ff",
-                        "surface-container": "#edeeef",
-                        "on-primary-fixed": "#001b3d",
-                        "surface-container-high": "#e7e8e9",
-                        "surface-container-lowest": "#ffffff",
-                        "primary-fixed": "#d6e3ff",
-                        "on-surface-variant": "#424752",
-                        "on-error-container": "#93000a",
-                        "primary-fixed-dim": "#a9c7ff",
-                        "outline-variant": "#c2c6d4",
-                        "on-tertiary": "#ffffff",
-                        "tertiary-fixed": "#d5e3ff",
-                        "on-secondary-fixed-variant": "#3f484f",
-                        "inverse-surface": "#2e3132",
-                        "error": "#ba1a1a",
-                        "tertiary": "#244877",
-                        "surface-variant": "#e1e3e4",
-                        "outline": "#727783",
-                        "surface-container-low": "#f3f4f5",
-                        "on-primary-container": "#c8daff",
-                        "tertiary-container": "#3e6091",
-                        "surface-dim": "#d9dadb",
-                        "error-container": "#ffdad6",
-                        "on-secondary": "#ffffff",
-                        "primary": "#00478d",
-                        "surface": "#f8f9fa",
-                        "secondary-fixed": "#dbe4ed",
-                        "surface-bright": "#f8f9fa",
-                        "on-secondary-container": "#5b646b",
-                        "secondary-container": "#d8e1ea",
-                        "primary-container": "#005eb8",
-                        "on-tertiary-container": "#c6dbff",
-                        "inverse-on-surface": "#f0f1f2",
-                        "on-tertiary-fixed-variant": "#234776",
-                        "on-surface": "#191c1d",
-                        "on-tertiary-fixed": "#001c3b",
-                        "surface-container-highest": "#e1e3e4",
-                        "on-background": "#191c1d"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "container-max": "1200px",
-                        "unit": "8px",
-                        "stack-lg": "32px",
-                        "margin-mobile": "16px",
-                        "margin-desktop": "40px",
-                        "stack-sm": "8px",
-                        "stack-md": "16px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-xl": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "label-md": ["Inter"],
-                        "headline-lg-mobile": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "headline-xl-mobile": ["Inter"],
-                        "caption": ["Inter"],
-                        "headline-lg": ["Inter"]
-                    },
-                    "fontSize": {
-                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
-                    }
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3f484f",
+                    "surface": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#244877",
+                    "on-surface": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-variant": "#e1e3e4",
+                    "on-secondary-container": "#5b646b",
+                    "surface-container-low": "#f3f4f5",
+                    "secondary-container": "#d8e1ea",
+                    "surface-dim": "#d9dadb",
+                    "secondary-fixed": "#dbe4ed",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#c8daff",
+                    "on-background": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c2c6d4",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#575f67",
+                    "on-secondary-fixed": "#141d23",
+                    "inverse-primary": "#a9c7ff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#001b3d",
+                    "primary-fixed": "#d6e3ff",
+                    "background": "#f8f9fa",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary-container": "#005eb8",
+                    "on-tertiary-fixed": "#001c3b",
+                    "on-tertiary-fixed-variant": "#234776",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "error-container": "#ffdad6",
+                    "primary": "#00478d",
+                    "on-primary-fixed-variant": "#00468c",
+                    "outline": "#727783",
+                    "on-surface-variant": "#424752",
+                    "on-tertiary-container": "#c6dbff",
+                    "tertiary-fixed-dim": "#a6c8ff",
+                    "tertiary-fixed": "#d5e3ff",
+                    "tertiary-container": "#3e6091",
+                    "surface-tint": "#005db6",
+                    "secondary-fixed-dim": "#bfc8d0",
+                    "surface-container": "#edeeef"
             },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "stack-lg": "32px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
         }
+      }
     </script>
-
-<link rel="stylesheet" th:href="@{/css/common.css}">
-<header class="bg-surface dark:bg-on-surface-fixed sticky top-0 z-50 shadow-sm border-b border-outline-variant/10">
-<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
-<div class="flex items-center gap-stack-md">
-<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">HealthGuide</a>
-<nav class="hidden md:flex items-center gap-6 ml-8">
-<a href="Edukasi.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
-<a href="Chatbot.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
-<a href="Dashboard.html" class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary cursor-pointer transition-all active:scale-95" href="{{DATA:SCREEN:SCREEN_16}}">Dashboard</a>
-
-</nav>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layering {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- Header / Brand Anchor (Minimal for Transactional Page) -->
+<header class="bg-surface border-b border-outline-variant/30 sticky top-0 z-50">
+        <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
+            <a href="#" class="font-bold text-2xl text-primary">HealthGuide</a>
+        </div>
+    </header>
+<main class="flex-grow flex items-center justify-center px-margin-mobile py-stack-lg relative overflow-hidden">
+<!-- Ambient Decorative Background -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+<div class="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-primary-fixed rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[350px] h-[350px] bg-secondary-container rounded-full blur-[100px]"></div>
 </div>
-<div class="flex items-center gap-4">
-<div class="relative hidden sm:block">
-<input class="pl-10 pr-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none text-body-md w-64 transition-all" placeholder="Cari penyakit..." type="text" onkeypress="if(event.key === 'Enter') alert('Mencari ' + this.value + '...')">
-<span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant">search</span>
+<!-- Login Card -->
+<div class="z-10 w-full max-w-[440px] bg-surface-container-lowest rounded-xl p-stack-lg md:p-10 tonal-layering border border-outline-variant/30">
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Selamat Datang</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Masuk ke akun HealthGuide Anda untuk melanjutkan konsultasi kesehatan.</p>
 </div>
-<a href="Notifikasi.html" class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-variant rounded-full cursor-pointer transition-all active:scale-95">notifications</a>
-<a href="Akun.html">
-<img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
+<form action="#" class="space-y-stack-md" onsubmit="event.preventDefault(); window.location.href='#dashboard-link-placeholder';">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1" for="email">Alamat Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-body-md text-on-surface placeholder:text-outline" id="email" name="email" placeholder="contoh@email.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Kata Sandi</label>
+<a class="font-label-md text-label-md text-primary hover:underline transition-all" href="#">Lupa password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full h-12 pl-12 pr-12 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-body-md text-on-surface placeholder:text-outline" id="password" name="password" placeholder="Min. 8 karakter" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors focus:outline-none" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[20px]" id="passwordIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-2 px-1">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer" id="remember" type="checkbox"/>
+<label class="font-caption text-caption text-on-surface-variant cursor-pointer select-none" for="remember">Ingat saya di perangkat ini</label>
+</div>
+<!-- CTA Button -->
+<div class="pt-4">
+<a class="w-full h-12 bg-primary text-on-primary font-label-md text-label-md font-semibold rounded-lg hover:bg-primary-container transition-all shadow-md hover:shadow-lg active:scale-[0.98] flex items-center justify-center gap-2" href="Akun.html" type="submit">
+                        Masuk
+                        <span class="material-symbols-outlined text-[18px]">login</span>
 </a>
 </div>
+<!-- Divider -->
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+<span class="font-caption text-caption text-outline">atau</span>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
 </div>
-</header>
-<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-stack-lg">
-<!-- Title and Filter Section -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md mb-stack-lg">
-<div>
-<h2 class="font-headline-xl text-headline-xl text-on-surface">Pusat Notifikasi</h2>
-<p class="text-on-surface-variant font-body-lg mt-unit">Tetap terinformasi tentang kesehatan dan kemajuan Anda.</p>
-</div>
-<div class="flex gap-stack-sm overflow-x-auto pb-2 md:pb-0">
-<button class="px-stack-md py-2 rounded-full bg-primary text-on-primary text-label-md font-bold">Semua</button>
-<button class="px-stack-md py-2 rounded-full bg-surface-container text-on-surface-variant text-label-md hover:bg-surface-container-high transition-colors">Alerts</button>
-<button class="px-stack-md py-2 rounded-full bg-surface-container text-on-surface-variant text-label-md hover:bg-surface-container-high transition-colors">Edukasi</button>
-<button class="px-stack-md py-2 rounded-full bg-surface-container text-on-surface-variant text-label-md hover:bg-surface-container-high transition-colors">Milestones</button>
-</div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Sidebar Stats (Bento Grid Style for desktop) -->
-<div class="lg:col-span-4 flex flex-col gap-gutter">
-<div class="tonal-card p-stack-md rounded-xl bg-primary-container text-on-primary-container overflow-hidden relative">
-<div class="relative z-10">
-<span class="material-symbols-outlined mb-2" data-icon="auto_awesome">auto_awesome</span>
-<p class="font-label-md opacity-90">Minggu Ini</p>
-<h3 class="font-headline-md text-headline-md mt-1">Ringkasan Bagus!</h3>
-<p class="font-body-md mt-stack-sm">Anda telah menyelesaikan 85% dari target kesehatan mingguan Anda.</p>
-</div>
-<div class="absolute -right-4 -bottom-4 opacity-10">
-<span class="material-symbols-outlined text-[120px]" data-icon="check_circle">check_circle</span>
-</div>
-</div>
-<div class="tonal-card p-stack-md rounded-xl">
-<h4 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-stack-md">Kategori</h4>
-<div class="flex flex-col gap-stack-sm">
-<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="emergency_home">emergency_home</span>
-</div>
-<span class="font-label-md">Health Alerts</span>
-</div>
-<span class="bg-error text-on-error text-caption px-2 py-0.5 rounded-full">2</span>
-</div>
-<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="newspaper">newspaper</span>
-</div>
-<span class="font-label-md">Health News</span>
-</div>
-<span class="bg-primary text-on-primary text-caption px-2 py-0.5 rounded-full">5</span>
-</div>
-<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="workspace_premium">workspace_premium</span>
-</div>
-<span class="font-label-md">Milestones</span>
-</div>
-<span class="bg-tertiary text-on-tertiary text-caption px-2 py-0.5 rounded-full">1</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Main Notification Feed -->
-<div class="lg:col-span-8 flex flex-col gap-stack-md">
-<!-- Category: Personal Health Alerts -->
-<section>
-<div class="flex items-center gap-stack-sm mb-stack-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Personal Health Alerts</h3>
-<span class="w-2 h-2 rounded-full bg-error"></span>
-</div>
-<div class="space-y-stack-sm">
-<div class="tonal-card p-stack-md rounded-xl flex gap-stack-md items-start group cursor-pointer" onclick="location.href='#'">
-<div class="w-12 h-12 flex-shrink-0 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
-<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start">
-<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Hasil Cek Gejala Tersedia</h4>
-<span class="text-caption text-on-surface-variant">Baru saja</span>
-</div>
-<p class="text-on-surface-variant mt-unit">Berdasarkan input Anda mengenai 'Sakit Kepala', kami merekomendasikan istirahat dan hidrasi yang cukup. Klik untuk detail.</p>
-<div class="mt-stack-sm flex gap-stack-sm">
-<button class="text-primary font-bold text-label-md hover:underline" onclick="location.href='#'">Lihat Rekomendasi</button>
-</div>
-</div>
-</div>
-<div class="tonal-card p-stack-md rounded-xl flex gap-stack-md items-start opacity-75">
-<div class="w-12 h-12 flex-shrink-0 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
-<span class="material-symbols-outlined" data-icon="pill">pill</span>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start">
-<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Waktu Minum Vitamin</h4>
-<span class="text-caption text-on-surface-variant">2 jam yang lalu</span>
-</div>
-<p class="text-on-surface-variant mt-unit">Jangan lupa untuk meminum Vitamin D Anda hari ini untuk menjaga daya tahan tubuh.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Category: Progress Milestones -->
-<section class="mt-stack-lg">
-<div class="flex items-center gap-stack-sm mb-stack-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Progress Milestones</h3>
-<span class="w-2 h-2 rounded-full bg-tertiary"></span>
-</div>
-<div class="tonal-card p-stack-md rounded-xl flex gap-stack-md items-start border-l-4 border-tertiary">
-<div class="w-12 h-12 flex-shrink-0 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
-<span class="material-symbols-outlined" data-icon="emoji_events" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start">
-<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Selamat! Target Tercapai</h4>
-<span class="text-caption text-on-surface-variant">Hari ini</span>
-</div>
-<p class="text-on-surface-variant mt-unit">Luar biasa! You've completed 7 days of exercise berturut-turut. Konsistensi adalah kunci kesehatan jangka panjang.</p>
-<div class="mt-stack-sm overflow-hidden h-2 w-full bg-surface-container rounded-full">
-<div class="h-full bg-tertiary rounded-full" style="width: 100%"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Category: Health News Updates -->
-<section class="mt-stack-lg">
-<div class="flex items-center gap-stack-sm mb-stack-sm">
-<h3 class="font-headline-md text-headline-md text-on-surface">Health News Updates</h3>
-<span class="w-2 h-2 rounded-full bg-primary"></span>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
-<div class="tonal-card flex flex-col rounded-xl overflow-hidden">
-<div class="h-32 bg-surface-container relative">
-<img alt="Health Article" class="w-full h-full object-cover" data-alt="A clean, medical-themed stock photo featuring a stethoscope and healthy lifestyle elements like a bowl of fresh fruit. The lighting is bright and high-key, conveying a sense of optimism and professional medical authority. The overall style is minimalist and modern, aligned with a high-end health platform UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs2PSymLT58rmDthaAVl5IY2Mj2foJkZNufGN5NFqdvP4UqGGl27e3ncxTBITEJ6E-W900vQUhpmotWKdGkK6SLrGo_Jzq6VssZvfE4foM1t950jiVv6C9ShVqnAWCe9ETCQZgOcLV4zdJao0HBD5z80Szs3Ct2BN-jZgIGQ8sPUmOi5OwmCTFDZb7RzEcpyO0Hq3rUxiMrH4WJqLk9zxz7qNdvVrT8HHFq6zFEF5tjolQ1ymJ-q9IeONnGeTuKu5HwSDyZNt-Gps">
-</div>
-<div class="p-stack-md">
-<span class="text-caption text-primary font-bold">Wawasan Baru</span>
-<h4 class="font-label-md text-on-surface mt-unit leading-snug">5 Cara Menjaga Kesehatan Mental di Lingkungan Kerja</h4>
-<p class="text-caption text-on-surface-variant mt-2 line-clamp-2">Pelajari teknik mindfulness yang mudah diterapkan saat Anda merasa stres di kantor.</p>
-<button class="mt-stack-sm text-primary font-bold text-label-md flex items-center gap-1 group" onclick="location.href='#'">
-                                    Baca Selengkapnya
-                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<!-- Social Login Placeholder -->
+<button class="w-full h-12 bg-surface-container-highest border border-outline-variant text-on-surface-variant font-label-md text-label-md rounded-lg hover:bg-surface-variant transition-all flex items-center justify-center gap-2" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+Masuk dengan Google
 </button>
-</div>
-</div>
-<div class="tonal-card flex flex-col rounded-xl overflow-hidden">
-<div class="h-32 bg-surface-container relative">
-<img alt="Exercise Article" class="w-full h-full object-cover" data-alt="A dynamic shot of a person practicing yoga in a brightly lit, minimalist studio with warm sunlight streaming through large windows. The atmosphere is peaceful and focused on wellness. The color palette features soft neutrals and a touch of primary blue from a yoga mat, ensuring visual harmony with the app's branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIqsoe-4MwuAZNOwQNXLwKpM5T95XR9HO9xzE7VNFP9Z9wMquLIZFBvjr3QIeMwre07Iwh9tj7ho43EepcltIu_4QGEQ8yU3YeRRY9-2SE6oYV9AfdAzxD_gvKXm8e1txkresOCWci8QsuT5MmkNavUxTP8RG5WY4xx0o3D49LJx8gRRw6OdlNBOjdkZYhW5L3ZtV4YGhIPFpEhSYobFbrWsOE1u_8OCh167-hp-vIMxKaF9mzv15fozzMd5SyIa654YKhu5j8NlU">
-</div>
-<div class="p-stack-md">
-<span class="text-caption text-primary font-bold">Aktivitas</span>
-<h4 class="font-label-md text-on-surface mt-unit leading-snug">Pentingnya Pemanasan Sebelum Olahraga</h4>
-<p class="text-caption text-on-surface-variant mt-2 line-clamp-2">Menghindari cedera adalah bagian penting dari rutinitas olahraga Anda. Simak tips berikut.</p>
-<button class="mt-stack-sm text-primary font-bold text-label-md flex items-center gap-1 group" onclick="location.href='#'">
-                                    Baca Selengkapnya
-                                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Older Notifications -->
-<button class="mt-stack-lg w-full py-stack-md border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant hover:border-primary hover:text-primary transition-all font-label-md">
-                    Lihat Notifikasi Sebelumnya
-                </button>
+</form>
+<div class="mt-stack-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Belum punya akun? 
+                    <a href="Register.html" class="text-primary font-semibold hover:underline transition-all" href="#">Daftar sekarang</a>
+</p>
 </div>
 </div>
 </main>
+<!-- Footer - Transactional Context -->
 <footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
@@ -315,7 +207,45 @@
 </div>
 </div>
 </footer>
+<!-- Scripts -->
+<script>
+        // Password Visibility Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const passwordIcon = document.getElementById('passwordIcon');
 
-<script th:src="@{/js/notifikasi.js}"></script>
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Toggle the icon and style
+            if (type === 'text') {
+                passwordIcon.textContent = 'visibility_off';
+                this.classList.add('text-primary');
+                this.classList.remove('text-outline');
+            } else {
+                passwordIcon.textContent = 'visibility';
+                this.classList.remove('text-primary');
+                this.classList.add('text-outline');
+            }
+        });
+
+        // Ripple Effect
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                let d = Math.max(this.clientWidth, this.clientHeight);
+                ripple.style.width = ripple.style.height = d + 'px';
+                let rect = this.getBoundingClientRect();
+                ripple.style.left = e.clientX - rect.left - d/2 + 'px';
+                ripple.style.top = e.clientY - rect.top - d/2 + 'px';
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+
+<link rel="stylesheet" th:href="@{/css/common.css}">
 </body>
 </html>

@@ -1,22 +1,26 @@
-/* reminder.js - Reminder.html */
+/* landing-page.js - LandingPage.html */
 
-// Toggle switch opacity feedback
-const toggles = document.querySelectorAll('.switch input');
-toggles.forEach(toggle => {
-    toggle.addEventListener('change', function () {
-        const parent = this.closest('.p-4');
-        if (parent) {
-            parent.style.opacity = this.checked ? '1' : '0.6';
-        }
-    });
+// Header shadow on scroll
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    if (window.scrollY > 20) {
+        header.classList.add('shadow-md');
+        header.classList.remove('shadow-sm');
+    } else {
+        header.classList.add('shadow-sm');
+        header.classList.remove('shadow-md');
+    }
 });
 
-// Time input change logger (hook for API calls in Spring Boot)
-const timeInputs = document.querySelectorAll('input[type="time"]');
-timeInputs.forEach(input => {
-    input.addEventListener('change', (e) => {
-        console.log(`Setting time to: ${e.target.value}`);
-        // TODO: Kirim ke Spring Boot endpoint, contoh:
-        // fetch('/api/reminder/time', { method: 'POST', body: JSON.stringify({ time: e.target.value }) })
+// Hover lift for feature cards (.group elements)
+const cards = document.querySelectorAll('.group');
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
+        card.style.transition = 'all 0.3s ease';
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
     });
 });

@@ -1,238 +1,243 @@
 <!DOCTYPE html>
 <html class="light" lang="id" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments :: head('Dashboard')}"></head>
+<head th:replace="~{fragments :: head('Cek Gejala')}"></head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
 
-
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-
-<link rel="stylesheet" th:href="@{/css/common.css}">
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "outline-variant": "#c2c6d4",
-                        "on-secondary-fixed": "#141d23",
-                        "tertiary-fixed-dim": "#a6c8ff",
-                        "on-primary-fixed": "#001b3d",
-                        "on-surface-variant": "#424752",
-                        "on-tertiary-fixed-variant": "#234776",
-                        "tertiary-fixed": "#d5e3ff",
-                        "surface-container-highest": "#e1e3e4",
-                        "primary-fixed": "#d6e3ff",
-                        "surface-bright": "#f8f9fa",
-                        "tertiary": "#244877",
-                        "on-primary-fixed-variant": "#00468c",
-                        "secondary-fixed-dim": "#bfc8d0",
-                        "error-container": "#ffdad6",
-                        "primary-container": "#005eb8",
-                        "outline": "#727783",
-                        "primary": "#00478d",
-                        "surface-container": "#edeeef",
-                        "on-secondary": "#ffffff",
-                        "error": "#ba1a1a",
-                        "surface-container-low": "#f3f4f5",
-                        "on-error-container": "#93000a",
-                        "tertiary-container": "#3e6091",
-                        "on-primary-container": "#c8daff",
-                        "on-secondary-fixed-variant": "#3f484f",
-                        "on-error": "#ffffff",
-                        "surface-dim": "#d9dadb",
-                        "surface-variant": "#e1e3e4",
-                        "on-surface": "#191c1d",
-                        "background": "#f8f9fa",
-                        "secondary": "#575f67",
-                        "inverse-primary": "#a9c7ff",
-                        "on-tertiary-container": "#c6dbff",
-                        "primary-fixed-dim": "#a9c7ff",
-                        "surface-container-high": "#e7e8e9",
-                        "on-tertiary": "#ffffff",
-                        "surface-tint": "#005db6",
-                        "on-tertiary-fixed": "#001c3b",
-                        "surface": "#f8f9fa",
-                        "inverse-surface": "#2e3132",
-                        "on-secondary-container": "#5b646b",
-                        "secondary-container": "#d8e1ea",
-                        "secondary-fixed": "#dbe4ed",
-                        "on-background": "#191c1d",
-                        "inverse-on-surface": "#f0f1f2",
-                        "surface-container-lowest": "#ffffff",
-                        "on-primary": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-desktop": "40px",
-                        "stack-md": "16px",
-                        "unit": "8px",
-                        "gutter": "24px",
-                        "stack-sm": "8px",
-                        "margin-mobile": "16px",
-                        "container-max": "1200px",
-                        "stack-lg": "32px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "body-md": ["Inter"],
-                        "label-md": ["Inter"]
-                    },
-                    "fontSize": {
-                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
-                    }
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c2c6d4",
+                    "on-secondary-fixed": "#141d23",
+                    "tertiary-fixed-dim": "#a6c8ff",
+                    "on-primary-fixed": "#001b3d",
+                    "on-surface-variant": "#424752",
+                    "on-tertiary-fixed-variant": "#234776",
+                    "tertiary-fixed": "#d5e3ff",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-bright": "#f8f9fa",
+                    "tertiary": "#244877",
+                    "on-primary-fixed-variant": "#00468c",
+                    "secondary-fixed-dim": "#bfc8d0",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#005eb8",
+                    "outline": "#727783",
+                    "primary": "#00478d",
+                    "surface-container": "#edeeef",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f5",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#3e6091",
+                    "on-primary-container": "#c8daff",
+                    "on-secondary-fixed-variant": "#3f484f",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d9dadb",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface": "#191c1d",
+                    "background": "#f8f9fa",
+                    "secondary": "#575f67",
+                    "inverse-primary": "#a9c7ff",
+                    "on-tertiary-container": "#c6dbff",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#005db6",
+                    "on-tertiary-fixed": "#001c3b",
+                    "surface": "#f8f9fa",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-container": "#5b646b",
+                    "secondary-container": "#d8e1ea",
+                    "secondary-fixed": "#dbe4ed",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff"
             },
-        }
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "stack-md": "16px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "container-max": "1200px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
     </script>
 <link rel="stylesheet" th:href="@{/css/common.css}">
-
-<header class="bg-surface dark:bg-on-surface-fixed docked full-width top-0 shadow-sm sticky z-50">
+<header class="bg-surface dark:bg-on-surface-fixed shadow-sm sticky top-0 z-50">
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
-<div class="flex items-center gap-stack-lg">
-<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">HealthGuide</a>
-<nav class="hidden md:flex gap-stack-md">
-<a href ="Edukasi.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:scale-95" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
-<a href="Chatbot.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:scale-95" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
-<a href="Dashboard.html" class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary cursor-pointer transition-all active:scale-95 href="{{DATA:SCREEN:SCREEN_16}}">Dashboard</a>
+<a href="LandingPage.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer">MediGuide</a>
+<nav class="hidden md:flex gap-gutter">
+<a href="Edukasi.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors" href="{{DATA:SCREEN:SCREEN_14}}">Edukasi</a>
+<a href="Chatbot.html" class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary" href="{{DATA:SCREEN:SCREEN_8}}">Cek Gejala</a>
+<a href="Dashboard.html" class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">Dashboard</a>
+
 
 </nav>
-</div>
 <div class="flex items-center gap-stack-md">
-<a href="Notifikasi.html" class="material-symbols-outlined text-primary dark:text-primary-fixed-dim p-2 hover:bg-surface-container rounded-full transition-all active:scale-95 cursor-pointer">notifications</a>
+<a href="Notifikasi.html" class="cursor-pointer transition-all active:scale-95 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</a>
 <a href="Akun.html">
 <img class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer active:scale-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEmO-B0egG0DaUN118mfDWsppQg3YnHMhsayWQvRGwlYPn_OjzBTo0v83aNJeZdTPyZA-qROpLueITJ71qy-VBzMFcFBtwjx3Cwxdg3EMmro8eAJKmUJ9Z04n3Kqz3TyZL8oizK2FTRjtqf7VkLTbuksm2KOMOncHgNSoEHNA-2S3X8A8CqPW0nn8-mf-PkRDASOA4zQ2px1wb1LYPFyduYN3xvAQ3m1D28Hf-x7wenHscaf4pte8AiZvrzgvaJ7Og9gy4T5-mAs"/>
 </a>
 </div>
 </div>
 </header>
-<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
-<!-- Welcome Section -->
-<section class="mb-stack-lg">
-<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Halo, <span class="text-primary">Kelompok 5</span></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Senang melihat Anda kembali. Mari kita jaga kesehatan Anda hari ini.</p>
-</section>
-<!-- Bento Grid Layout -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Primary Reminder Card (Spans 8 columns) -->
-<div class="md:col-span-8 flex flex-col gap-gutter">
-<div class="bg-primary-container text-on-primary-container p-stack-lg rounded-xl shadow-sm relative overflow-hidden group">
+
+<main class="flex-grow gradient-mesh py-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Side: Interactive Assessment (Chatbot) -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30 h-[650px] flex flex-col overflow-hidden">
+<!-- Progress Bar & Header -->
+<div class="p-stack-lg border-b border-outline-variant/20 bg-white">
+<div class="flex justify-between items-center mb-stack-sm">
+<span class="font-label-md text-label-md text-primary" id="step-label">Langkah 1 dari 3</span>
+<span class="font-label-md text-label-md text-secondary" id="progress-percent">33%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full transition-all duration-500 ease-out" id="progress-bar" style="width: 33%"></div>
+</div>
+<div class="mt-stack-md flex items-center gap-stack-sm">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<h2 class="font-label-md text-label-md text-on-surface font-bold">HealthBot AI</h2>
+<p class="text-caption text-secondary flex items-center gap-1">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span> Online
+                            </p>
+</div>
+</div>
+</div>
+<!-- Chat Window -->
+<div class="flex-grow overflow-y-auto p-stack-lg space-y-stack-md chat-scroll bg-surface-container-lowest" id="chat-container">
+<!-- Bot Message -->
+<div class="flex gap-stack-sm max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-surface-container p-stack-md rounded-2xl rounded-tl-none">
+<p class="text-body-md text-on-surface">Halo! Saya HealthBot, asisten AI Anda. Apa yang Anda rasakan hari ini?</p>
+<span class="text-[10px] text-on-surface-variant mt-1 block">Tadi, 10:00</span>
+</div>
+</div>
+<!-- Bot Suggestion Chips -->
+<div class="flex flex-wrap gap-stack-sm pl-10">
+<button class="px-gutter py-unit bg-white rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary hover:text-primary transition-all cursor-pointer" onclick="sendMessage('Demam')">Demam</button>
+<button class="px-gutter py-unit bg-white rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary hover:text-primary transition-all cursor-pointer" onclick="sendMessage('Batuk')">Batuk</button>
+<button class="px-gutter py-unit bg-white rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary hover:text-primary transition-all cursor-pointer" onclick="sendMessage('Pusing')">Pusing</button>
+<button class="px-gutter py-unit bg-white rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary hover:text-primary transition-all cursor-pointer" onclick="sendMessage('Lemas')">Lemas</button>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-stack-lg bg-white border-t border-outline-variant/20">
+<form class="flex gap-stack-sm items-center" onsubmit="event.preventDefault(); sendMessage();">
+<div class="flex-grow relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-gutter py-3 font-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline hover:border-primary cursor-pointer" id="chat-input" placeholder="Ketikkan gejala Anda di sini..." type="text">
+</div>
+<a href="HasilAnalisis.html" class="bg-primary text-on-primary w-12 h-12 rounded-xl flex items-center justify-center shadow-sm hover:opacity-90 active:scale-95 transition-all cursor-pointer" type="submit">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</a>
+
+</form>
+<p class="text-[11px] text-secondary mt-stack-sm text-center">Analisis AI bukan diagnosa medis resmi. Konsultasikan dengan dokter untuk hasil pasti.</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Supportive Content -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Trust Card -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden relative">
 <div class="relative z-10">
-<div class="flex items-center gap-2 mb-4">
-<span class="material-symbols-outlined" data-icon="event">event</span>
-<span class="font-label-md text-label-md uppercase tracking-wider opacity-90">Pengingat Penting</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-stack-sm">Akurasi &amp; Kepercayaan</h4>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Algoritma kami didasarkan pada protokol medis standar internasional dan divalidasi oleh tim dokter spesialis HealthGuide.
+                    </p>
 </div>
-<h2 class="font-headline-lg text-headline-lg mb-2">Jadwal Pemeriksaan Rutin</h2>
-<p class="font-body-lg text-body-lg mb-6 opacity-90">Rumah Sakit Central • 15 April 2026, 09:00 WIB</p>
-<a href="#" class="inline-block bg-surface-container-lowest text-primary px-6 py-3 rounded-full font-bold text-label-md hover:shadow-md transition-all active:scale-95 cursor-pointer">Lihat Detail Jadwal</a>
-</div>
-<!-- Decorative element -->
-<span class="material-symbols-outlined absolute -right-8 -bottom-8 text-[160px] opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-700" data-icon="medical_services">medical_services</span>
-</div>
-<!-- Health History (Asymmetric Card) -->
-<div class="bg-surface-container-lowest p-stack-lg rounded-xl shadow-sm border border-outline-variant/20">
-<div class="flex justify-between items-center mb-6">
-<h3 class="font-headline-md text-headline-md">Riwayat Cek Gejala</h3>
-<a class="text-primary font-bold text-label-md flex items-center gap-1 hover:underline" href="#">Semua Riwayat <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
-</div>
-<div class="space-y-4">
-<div class="flex items-center justify-between p-4 bg-surface rounded-lg hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10" onclick="location.href='#'">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-error-container text-error rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined" data-icon="thermometer">thermometer</span>
-</div>
-<div>
-<p class="font-bold text-on-surface">Demam &amp; Sakit Kepala</p>
-<p class="text-caption text-on-surface-variant">Dibuat pada 28 Februari 2026</p>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="verified_user">verified_user</span>
 </div>
 </div>
-<span class="px-3 py-1 bg-error-container/50 text-error text-[12px] font-bold rounded-full">Saran: Konsultasi</span>
+<!-- Emergency Contact -->
+<div class="bg-error-container p-stack-lg rounded-xl border border-error/10">
+<h4 class="font-label-md text-label-md text-on-error-container font-bold mb-stack-sm flex items-center gap-unit">
+<span class="material-symbols-outlined text-error" data-icon="emergency">emergency</span> DARURAT?
+                </h4>
+<p class="text-label-md text-on-error-container mb-stack-md">Jika Anda merasa dalam kondisi kritis, segera hubungi nomor darurat.</p>
+<a class="block w-full text-center bg-error text-on-error py-3 rounded-lg font-bold text-headline-md transition-all active:scale-95" href="#">
+                    119
+                </a>
 </div>
-<div class="flex items-center justify-between p-4 bg-surface rounded-lg hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10" onclick="location.href='#'">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-tertiary-fixed text-tertiary rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined" data-icon="respiratory_rate">respiratory_rate</span>
+<!-- Related Content -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-xl border border-outline-variant/30">
+<h4 class="font-label-md text-label-md text-secondary mb-stack-md uppercase tracking-wider">Artikel Terbaru</h4>
+<div class="space-y-stack-md">
+<div class="flex gap-stack-md group cursor-pointer" onclick="location.href='#'">
+<div class="w-16 h-16 rounded-lg bg-surface-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpvMpZipgwr6wC33-3knD6ScCBrz-lcAuGCT2lUVdV18CIvbvTFjbUlUOL-FhSx1oe0iAB1lC3S-WTEqID0-Wa_meetBrOuTZMritAdHYVFp5Ka3CfbHysXureeXIcdffy_efVhCgFdpzB46nG8Ao5St24d0LXcMqvyUkO2BhgCKyf_WFCRzy_3e8e-y9WFy4WNqwGOaRxrXVP7XkYrCCvXngPYGOvblMdMJymyAZ34hpcbmJ53pAUgOdTr3yPVgsLeCt2p3l0_OI">
 </div>
 <div>
-<p class="font-bold text-on-surface">Batuk Berdahak</p>
-<p class="text-caption text-on-surface-variant">Dibuat pada 10 Januari 2026</p>
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">Mengatasi Demam Musiman di Rumah</p>
+<span class="text-caption text-secondary">5 Menit Baca</span>
 </div>
 </div>
-<span class="px-3 py-1 bg-tertiary-fixed/50 text-tertiary text-[12px] font-bold rounded-full">Saran: Istirahat</span>
+<div class="flex gap-stack-md group cursor-pointer" onclick="location.href='#'">
+<div class="w-16 h-16 rounded-lg bg-surface-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgnKksyuVUd2OjUBNshxZMybL5ZA5GTWhfJ9l61rL4syW_Q1NgkpEgXNL6H3YZFSiLLMv_tQv6ZqM5hc7cHHKSppcMwDqzwRtqvAnGXoQC9ScLjSn0G4v7sAuH0pmpOe5jXTCgaAjSbvnvwQIVlTFTpA88zE4iE_iNcWXxm6jrXltrHRxktFa-HCOivZkF_mmapHWqjrj5wtrODDAEANH5DVx62XDpULKNnts_saWYxcye7QYUrthOPNphB6bBcfCqcMcB8l9zfiU">
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors line-clamp-2">Pentingnya Hidrasi Saat Sakit Kepala</p>
+<span class="text-caption text-secondary">3 Menit Baca</span>
 </div>
 </div>
 </div>
-</div>
-<!-- Sidebar Content (Spans 4 columns) -->
-<div class="md:col-span-4 flex flex-col gap-gutter">
-<!-- Tips Hari Ini -->
-<div class="bg-secondary-container text-on-secondary-container p-stack-lg rounded-xl shadow-sm h-full flex flex-col">
-<div class="flex items-center gap-2 mb-4">
-<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
-<span class="font-label-md text-label-md uppercase tracking-wider">Tips Hari Ini</span>
-</div>
-<div class="rounded-lg overflow-hidden mb-4">
-<img alt="Meditation and Wellness" class="w-full h-32 object-cover" data-alt="A serene scene featuring a person practicing yoga in a bright, sun-drenched room with large windows overlooking a lush garden. The aesthetic is clean and minimalist, using a calming palette of soft whites and natural wood tones. The lighting is ethereal and soft, creating a mood of absolute peace, mindfulness, and health-focused reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGrOpI7K_lcITNEV6TZDoUpI3oMrrLnNohgTDwX8JGbYN8e450oBNMpH-LJGBblY9l5KQY5j3_njHAK8hzB9B9uCaWQhnTXOCnszE7ditcJzNq7jz7--_5LvCArBx3w4TSX-ikaJszA82d5zmZvJXeScdtrAKPFq8NxpogFSTJLATzmiJDMqoWeSaeMnsKzDe4QWjSDlI9sjk_h8u_31KSTakB7fyBYFzgJVGG2ZIwQH-h5QzKrD5xXDNhzFx3t8D4F3u4HfJHYSA">
-</div>
-<h4 class="font-headline-md text-[20px] mb-2">Manfaat Hidrasi</h4>
-<p class="font-body-md text-body-md opacity-90 flex-grow">Minum air putih minimal 8 gelas sehari membantu menjaga fungsi ginjal dan konsentrasi otak Anda selama bekerja.</p>
-<p class="text-caption mt-4 opacity-70">Sumber: WHO Health Guide</p>
-</div>
-<!-- Settings/Notifications -->
-<div class="bg-surface-container-lowest p-stack-lg rounded-xl shadow-sm border border-outline-variant/20">
-<h3 class="font-headline-md text-[20px] mb-6">Pengingat Saya</h3>
-<div class="space-y-6">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="medication">medication</span>
-<span class="font-body-md text-body-md">Minum Obat</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox">
-<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-</label>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="fitness_center">fitness_center</span>
-<span class="font-body-md text-body-md">Olahraga</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox">
-<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-</label>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="bedtime">bedtime</span>
-<span class="font-body-md text-body-md">Waktu Tidur</span>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input class="sr-only peer" type="checkbox">
-<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-</label>
-</div>
-</div>
-<a href="Reminder.html" class="block w-full mt-8 py-3 border border-primary text-primary rounded-full font-bold text-center text-label-md hover:bg-primary/5 transition-colors cursor-pointer">Pengaturan Lanjut</a>
 </div>
 </div>
 </div>
 </main>
+
 <footer class="bg-surface-container-low border-t border-outline-variant">
 <div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col gap-stack-md">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
@@ -255,6 +260,60 @@
 </div>
 </footer>
 
-<script th:src="@{/js/dashboard.js}"></script>
+<script>
+        function sendMessage(text) {
+        const input = document.getElementById('chat-input');
+        const message = text || input.value.trim();
+        if (!message) return;
+
+        const chatContainer = document.getElementById('chat-container');
+        
+        // User Message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'flex justify-end gap-stack-sm ml-auto max-w-[85%]';
+        userMsg.innerHTML = `
+            <div class="bg-primary text-on-primary p-stack-md rounded-2xl rounded-tr-none">
+                <p class="text-body-md">${message}</p>
+                <span class="text-[10px] text-on-primary/70 mt-1 block text-right">Sekarang</span>
+            </div>
+        `;
+        chatContainer.appendChild(userMsg);
+        
+        if (!text) input.value = '';
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // Simulate Bot Response & Progress
+        setTimeout(() => {
+            const botMsg = document.createElement('div');
+            botMsg.className = 'flex gap-stack-sm max-w-[85%] animate-pulse';
+            botMsg.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-on-primary">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="smart_toy">smart_toy</span>
+                </div>
+                <div class="bg-surface-container p-stack-md rounded-2xl rounded-tl-none">
+                    <p class="text-body-md text-on-surface">Menganalisis...</p>
+                </div>
+            `;
+            chatContainer.appendChild(botMsg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            setTimeout(() => {
+                botMsg.classList.remove('animate-pulse');
+                botMsg.querySelector('p').innerText = "Sudah berapa lama ini berlangsung?";
+                
+                // Update Progress UI
+                const progressBar = document.getElementById('progress-bar');
+                const stepLabel = document.getElementById('step-label');
+                const progressPercent = document.getElementById('progress-percent');
+                
+                progressBar.style.width = '66%';
+                stepLabel.innerText = 'Langkah 2 dari 3';
+                progressPercent.innerText = '66%';
+                
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1000);
+        }, 500);
+    }
+</script>
 </body>
 </html>

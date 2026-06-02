@@ -1,31 +1,26 @@
-/* kesehatan-mental.js - KesehatanMental.html */
+/* dashboard.js - Dashboard.html */
 
-// Category filter tab switching
-const filterButtons = document.querySelectorAll('button.whitespace-nowrap');
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterButtons.forEach(b => {
-            b.classList.remove('bg-primary', 'text-on-primary');
-            b.classList.add('bg-surface', 'border', 'border-outline-variant', 'text-on-surface-variant');
-        });
-        btn.classList.remove('bg-surface', 'border', 'border-outline-variant', 'text-on-surface-variant');
-        btn.classList.add('bg-primary', 'text-on-primary');
-    });
-});
-
-// Scroll reveal for tonal cards
-const observerOptions = { threshold: 0.1 };
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-            entry.target.classList.remove('opacity-0', 'translate-y-8');
+// Toggle reminders
+document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+    toggle.addEventListener('change', function () {
+        const labelEl = this.closest('label');
+        if (!labelEl) return;
+        const sibling = labelEl.previousElementSibling;
+        if (!sibling) return;
+        const span = sibling.querySelector('span:last-child');
+        if (span) {
+            console.log(`${span.textContent} reminder: ${this.checked ? 'Enabled' : 'Disabled'}`);
         }
     });
-}, observerOptions);
-
-document.querySelectorAll('.tonal-card').forEach(card => {
-    card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
-    observer.observe(card);
 });
+
+// Search bar expand on focus
+const searchInput = document.querySelector('input[placeholder="Cari penyakit..."]');
+if (searchInput) {
+    searchInput.addEventListener('focus', () => {
+        searchInput.classList.add('w-80');
+    });
+    searchInput.addEventListener('blur', () => {
+        searchInput.classList.remove('w-80');
+    });
+}

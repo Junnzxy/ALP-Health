@@ -1,27 +1,20 @@
-/* notifikasi.js - Notifikasi.html */
+/* hoaks.js - Hoaks.html */
 
-// Button press micro-interaction
-document.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('mousedown', () => {
-        btn.style.transform = 'scale(0.95)';
+// Search input ring on focus
+const searchInput = document.getElementById('hoaxSearch');
+if (searchInput) {
+    searchInput.addEventListener('focus', () => {
+        searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
     });
-    btn.addEventListener('mouseup', () => {
-        btn.style.transform = 'scale(1)';
+    searchInput.addEventListener('blur', () => {
+        searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
     });
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'scale(1)';
-    });
-});
+}
 
-// Tab filter switching
-const filterButtons = document.querySelectorAll('button.px-stack-md');
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        filterButtons.forEach(b => {
-            b.classList.remove('bg-primary', 'text-on-primary');
-            b.classList.add('bg-surface-container', 'text-on-surface-variant');
-        });
-        button.classList.remove('bg-surface-container', 'text-on-surface-variant');
-        button.classList.add('bg-primary', 'text-on-primary');
+// Placeholder for myth card hover (JS micro-interactions can be extended here)
+const cards = document.querySelectorAll('.myth-card-hover');
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        // Extended interactions can be added here
     });
 });

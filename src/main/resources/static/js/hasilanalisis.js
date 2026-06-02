@@ -1,23 +1,20 @@
-/* hasil-analisis.js - HasilAnalisis.html */
 
-// Hover lift for shadow cards
-document.querySelectorAll('.shadow-level-1').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-2px)';
-        card.style.transition = 'all 0.3s ease';
-        card.style.boxShadow = '0px 8px 30px rgba(0,0,0,0.08)';
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0px)';
-        card.style.boxShadow = '0px 4px 20px rgba(0,0,0,0.04)';
-    });
+// Scroll effect for header shadow
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    if (window.scrollY > 20) {
+        header.classList.add('shadow-md');
+        header.classList.remove('shadow-sm');
+    } else {
+        header.classList.add('shadow-sm');
+        header.classList.remove('shadow-md');
+    }
 });
 
-// Smooth scroll for nav links (prevent default for demo)
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const text = this.innerText;
-        console.log('Navigating to:', text);
+// Prevent default for anchor-only links
+document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('click', (e) => {
+        if (el.getAttribute('href') === '#') e.preventDefault();
     });
 });
